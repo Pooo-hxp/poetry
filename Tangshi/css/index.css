@@ -1,0 +1,106 @@
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 14px;
+}
+.top-bar{
+    height: 40px;
+    line-height: 39px;
+    border-bottom: 1px solid rgba(255,0,0,0.2);
+}
+.row .row-1{
+    position: relative;
+}
+.row .row-1 a img{
+    position: absolute;
+    display: none;
+    margin-top: -10px;
+}
+.row .row-1 a:hover img{
+    display: block;
+    z-index: 1;
+}
+.row .row-2{
+    border-left: 1px solid gray;
+}
+.row .row-3{
+    border-left: 1px solid gray;
+  
+}
+.row .row-4{
+    border-left: 1px solid gray;
+}
+.top-nav{
+    z-index: 2;
+}
+.navplus{
+    margin-top: 10px;
+}
+.navplus li{
+    margin-left: 30px;
+}
+.navplus img{
+    width:40px;
+    height:40px; 
+}
+.hxp-pointer{
+    cursor: pointer;
+}
+.hxp-shadow:hover{
+    box-shadow:3px 2px 6px #000;
+}
+.hxp-tianqi-container{
+    position: relative;
+    top: 2em;
+    color: #394568;
+    background: linear-gradient(to bottom, #d1d8eb 40%, #222 100%);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+    width: 17em;
+    height: 17em;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    font-family: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.hxp-tianqi-info-icon{
+    position: relative;
+    top: 2em;
+    text-align: center;
+    width: 17em;
+    height: 11em;
+}
+.hxp-tianqi-info-icon img{
+    width:5em;
+    height:5em;
+}
+.hxp-tianqi-info-data{
+    width: 100%;
+    height: 6em;
+    background: whitesmoke;
+}
+.tianqi-info-left{
+    float: left;
+    width: 2.0em;
+    height: 100%;
+    line-height: 4em;
+    /* border-right: 0.05em solid gray; */
+    position: relative;
+    font-size: 1.8em;
+}
+.tianqi-info-right{
+    float: left;
+    width: 13em;
+    height: 100%;
+}
+.tianqi-info-right ol li{
+    list-style: none;
+}
+.hxp-pinglun-container{
+    color: skyblue;
+    position: relative;
+    top: 3em;
+}
+#hxp{
+    background-image:url(../img/data_bg.jpg);
+}

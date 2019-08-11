@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 视口模式、适配移动端-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/index.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<header>
+		<div class="top-bar hidden-xs text-center text-muted">
+			<!--hidden-xs小屏幕就隐藏掉 -->
+			<div class="container">
+				<div class="row">
+					<div class="row-1 col-md-2 col-xs-4">
+						<a href="">
+							<svg class="icon" style="font-size: 30px;">
+								<use xlink:href="#icon-xihuan"></use>
+							</svg>
+							<span>我的微信号</span>
+							<span class="caret"></span>
+							<img src="img/hxp.png" alt="" width="150px">
+						</a>
+					</div>
+					<div class="row-2 col-md-5 col-xs-4 ">
+						Call me
+						<svg class="icon" style="font-size: 30px;">
+							<use xlink:href="#icon-nanhaizi"></use>
+						</svg>
+						<span>：18137805655（服务时间：9:00-24:00）</span>
+					</div>
+					<div class="row-3 col-md-2 col-xs-4 ">
+						<svg class="icon" style="font-size: 30px;">
+							<use xlink:href="#icon-lubiao"></use>
+						</svg>
+						<span title="hengxipeng@163.com"></svg><a href="mailto:hengxipeng@163.com">邮件联系我</a></span>
+					</div>
+					<div class="row-4 col-md-3 col-xs-4 ">
+						<svg class="icon" style="font-size: 30px;">
+							<use xlink:href="#icon-huaban5"></use>
+						</svg>
+						<a href="" role="button" class=" btn btn-sm"  @click.prevent="">给我留言</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-nav" id="hxp">
+			<ul class="nav nav-tabs navplus">
+				<li><img src="img/foo.jpg" alt="连接出现问题.."></li>
+				<li>
+					<a href="https://www.xipengheng.cn">about me</a>
+				</li>
+				<li>
+					<a href="https://www.xipengheng.cn/?cat=10">PHP笔记</a>
+				</li>
+				<li class="">
+					<a href="https://www.xipengheng.cn/?cat=5">JavaScript笔记</a>
+				</li>
+				<li class="">
+						<a href="https://www.xipengheng.cn/?cat=32">Vue笔记</a>
+				</li>
+				<li class="active ">
+					<a href="#">诗词</a>
+				</li>
+				<li>
+					<a href="https://www.xipengheng.cn/music/">音乐播放器</a>
+				</li>
+			</ul>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 hidden-xs ">
+						<h4>土豆哥推荐：</h4>
+						<Tangshi_list></Tangshi_list>
+					</div>
+					<div class="col-md-6">
+						<ul class="nav nav-pills  hxp-pointer">
+							<li v-for="(item,index) in liList" @click="addClass(index);change_Tangshi_key($event)" v-bind:class="{ active:index==current}">
+								<a>{{item}}</a></li>
+						</ul>
+						<img src="img/hxp-head.png" style="width: 9em;height:4.2em" />
+						<input type="text" v-model="selectval" style="width: 17em;height:2em">
+						<button @click="select">
+								<svg class="icon" style="font-size: 1.6em;">
+										<use xlink:href="#icon-huaban6"></use>
+									</svg>
+						搜一搜</button>
+						<div id=""  v-if="loadSurvey">
+							<Tangshi :Tangshi_key="Tangshi_key"></Tangshi>
+						</div>
+					</div>
+					<div class="col-md-3 ">
+						<div class="hxp-tianqi-container">
+						  <tianqi></tianqi>
+						</div>
+						<div class="hxp-pinglun-container">
+						<input type="text"style="width: 13em;height:2em"><button>留言</button>
+						<div>
+								<pinglun></pinglun>
+						</div>
+						
+					    </div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</header>
+	<!-- 固定诗词列表组件 -->
+	<template id="hxp-Tangshi-guding">
+		<div>
+		<ul class="nav nav-tabs nav-stacked" v-for="(item,index) in list":key="index" >
+			<li class="nav-item text-center" >
+				<a href="#" class="nav-link active">{{item.title}}（{{item.author}}）</a>
+			</li>
+		</ul>
+	 </div>
+	</template>
+	<!-- 当前天气信息组件 -->
+	<template id="hxp-tianqi">
+		<div class="hxp-tianqi-info">
+			<div class="hxp-tianqi-info-icon">
+			<img src="cucumber/lei.png" title="嘿、我是土豆哥"alt="图标咋没加载...">
+			<a id="jinrishici-sentence">正在加载今日诗词....</a>
+		    </div>			
+			<div class="hxp-tianqi-info-data">
+				<div class="tianqi-info-left">
+						{{tianqi_real}}
+				</div>
+				<div class="tianqi-info-right">
+					<ol>
+						<li>今天:{{tianqi_week}}</li>
+						<li>天气:{{tianqi_weather}}</li>
+						<li>气温:{{tianqi_lowest}}/{{tianqi_highest}}</li>
+						<li>空气质量:{{tianqi_air_level}}</li>
+				    </ol>
+				</div>
+			</div>
+		</div>
+	</template>
+	<!-- 评论内容组件 -->
+	<template id="hxp-pinglun">
+		<div>
+			<a class="text-conter">近期评论</a>
+			<div>
+				<p class="text-left">刘二狗：</p>
+				<a class ="text-center">今天天气看起来不错哟~今天天气看起来不错哟~今天天气看起来不错哟~</a>
+				<P class="text-right">2019-8-9 17:02:50</P>
+			</div>
+			<div>
+					<p class="text-left">刘二狗：</p>
+					<a class ="text-center">今天天气看起来不错哟~今天天气看起来不错哟~今天天气看起来不错哟~</a>
+					<P class="text-right">2019-8-9 17:02:50</P>
+				</div>
+		</div>
+		
+	</template>
+	<!--随机一句诗词配合当前天气 -->
+	<template id="hxp-ever">
+		<div>
+			<h4>vue自定义私有组件</h4>
+			作者：<span>{{author}}</span><br>
+			内容：<span>{{content}}</span><br>
+			来源：<span>{{source}}</span><br>
+			天气类型：<span>{{tqtype}}</span>
+		</div>
+	</template>
+	<!-- 动态诗词列表组件 -->
+	<template id="hxp-Tangshi" >
+		<table class="table  table-inverse table-responsive table-hover hxp-pointer">
+			<thead class="thead-inverse">
+				<tr>
+					<th>序号</th>
+					<th>作品名</th>
+					<th>作者</th>
+					<th>刷新时间</th>
+					<th>不喜欢</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(itm,index) in newslist" :key="index" class="hxp-shadow">
+					<td>{{index+1}}</td>
+					<td :title="itm.content">{{itm.title|hxpcode}}</td>
+					<td>{{itm.author}}</td>
+					<td>{{time|hxptime}}</td>
+					<td><a @click.prevent="del(index)">
+						<svg class="icon" style="font-size: 25px;">
+							<use xlink:href="#icon-haipabiaoqing"></use>
+						</svg>
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</template>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+<script src="axios/dist/axios.min.js"></script>
+<script src="fonts/iconfont.js"></script>
+<script src="js/index.js"></script>
+
+</html>
