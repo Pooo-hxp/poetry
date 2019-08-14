@@ -23,7 +23,7 @@
 				this.loadSurvey = false;
 				/*修改了Tangshi_key的值，但是此时再通过dom取到的值还未改变*/
 				/*大坑：一个事件循环tick后再修改，因为dom异步更新要在下一个'tick'更新。*/
-				/**修改数据之后立即使用这个方法，获得更新后的dom。 */
+				/*修改数据之后立即使用这个方法，获得更新后的dom。*/
 				this.$nextTick(() => {
 					this.loadSurvey = true
 				})
@@ -106,8 +106,8 @@
 				},
 			},
 	/*
-			 * 自定义评论组件
-			*/
+		* 自定义评论组件
+	*/
 			pinglun: {
 				template: '#hxp-pinglun',
 				data: function () {
