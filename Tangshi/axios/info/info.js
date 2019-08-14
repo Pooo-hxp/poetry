@@ -17,11 +17,11 @@
     let author = obj.author;
     if(obj.translation){
         var translation=obj.translation.replace(/<\/p>/g,"").split('。');
-        /*去掉字符串末尾那个讨厌的换行标签并格式化释义*/
+        /*去掉字符串末尾那个P标签并格式化释义*/
         var appreciation=obj.appreciation.replace(/<\/p>/g,"");
     }else{
-        var  translation=['未检索到'];
-        var appreciation='未检索到';
+        var  translation=['未检索到数据'];
+        var appreciation='未检索到数据';
     }
    
   
