@@ -8,7 +8,7 @@
 			loadSurvey:true,//重新渲染组件
 			selectval:null,//同步搜索框内容
 			Tangshi_key:'杜牧',//用来向子组件传值
-			liList:['李白','杜甫','李商隐','杜牧','岑参','王维'],
+			liList:['李白','杜甫','李商隐','王维'],
 			current:3,//诗人列表及默认选中
 			newslist: {}//存放诗词信息
 		},
@@ -17,18 +17,13 @@
 				 this.current=index;
 				 console.log('父子组件传值成功');
 				 },
-/**
- * 首先 vue的点击事件 是用 @click = “clickfun($event)” 属性 在html中绑定的,
- * 在点击的函数中 添加$event 参数就可以
- * clickfun(e) {
- *  e.target 是你当前点击的元素 
- * e.currentTarget 是你绑定事件的元素
- * 
- */
-			change_Tangshi_key:function (e) {								
+			change_Tangshi_key:function (e) {
+				console.log(e.target);
 				this.Tangshi_key=e.target.text;
 				this.loadSurvey = false;
+				/*方法触发后，修改了msg的值，但是此时再通过dom取到的值还未改变*/
 				/*大坑：一个事件循环tick后再修改，因为dom异步更新要在下一个'tick'更新。*/
+				/**修改数据之后立即使用这个方法，获得更新后的dom。 */
 				this.$nextTick(() => {
 					this.loadSurvey = true
 				})
@@ -43,7 +38,8 @@
 				this.$nextTick(() => {
 					this.loadSurvey = true;
 				})
-			}
+			},
+
 		},
 		components: {
 			Tangshi_list:{
@@ -61,6 +57,12 @@
 					this.list=newlist;
 					console.log(this.list);
 				})	
+				},
+				methods: {
+					hrefShow:function(e){
+						window.localStorage.setItem('obj',JSON.stringify(e));
+						window.location.href='axios/info/show.html';			
+					}
 				},
 			},
 /**
@@ -110,8 +112,17 @@
 				template: '#hxp-pinglun',
 				data: function () {
 					return {
+						pinglun:null
 					}
-				}
+				},
+				mounted() {
+					axios
+					.get(hxp.php)
+					.then(res=>{
+						this.pinglun=res;
+						console.log(res);
+					})
+				},
 			},
 			ever: {
 				template: '#hxp-ever',
@@ -148,7 +159,7 @@
 				template: '#hxp-Tangshi',
 				data: function () {
 					return {
-						Tangshi_key: '李白',
+						Tangshi_key:null,
 						time: new Date,
 						newslist: null,
 					}
@@ -157,6 +168,11 @@
 					del(index) {
 						this.newslist.splice(index, 1);
 					},
+					hrefShow:function(e){
+						console.log(e);
+						window.localStorage.setItem('obj',JSON.stringify(e));
+						window.location.href='axios/info/show.html';
+					}
 				},
 				/*存放一些我自定义的数据过滤器*/
 				filters: {
@@ -168,9 +184,7 @@
 						let Y = dt.getFullYear();
 						let M = dt.getMonth() + 1;
 						let D = dt.getDate();
-						let h = dt.getHours();
-						let m = dt.getMinutes();
-						return `${Y}.${M}.${D}.${h}.${m}分`;
+						return `${Y}.${M}.${D}`;
 					}
 				},
 				mounted() {
