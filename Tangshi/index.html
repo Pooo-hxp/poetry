@@ -3,13 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=no">
 	<!-- 视口模式、适配移动端-->
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/index.css">
-	<title>Document</title>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<title>诗词</title>
 </head>
 
 <body>
@@ -28,20 +30,20 @@
 							<img src="img/hxp.png" alt="" width="150px">
 						</a>
 					</div>
-					<div class="row-2 col-md-5 col-xs-4 ">
+					<div class="row-2 col-md-5 col-xs-4 hxp-fenge ">
 						Call me
 						<svg class="icon" style="font-size: 30px;">
 							<use xlink:href="#icon-nanhaizi"></use>
 						</svg>
 						<span>：18137805655（服务时间：9:00-24:00）</span>
 					</div>
-					<div class="row-3 col-md-2 col-xs-4 ">
+					<div class="row-3 col-md-2 col-xs-4  hxp-fenge">
 						<svg class="icon" style="font-size: 30px;">
 							<use xlink:href="#icon-lubiao"></use>
 						</svg>
 						<span title="hengxipeng@163.com"></svg><a href="mailto:hengxipeng@163.com">邮件联系我</a></span>
 					</div>
-					<div class="row-4 col-md-3 col-xs-4 ">
+					<div class="row-4 col-md-3 col-xs-4 hxp-fenge ">
 						<svg class="icon" style="font-size: 30px;">
 							<use xlink:href="#icon-huaban5"></use>
 						</svg>
@@ -75,18 +77,19 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3 hidden-xs ">
-						<h4>土豆哥推荐：</h4>
+						<h4>推荐诗词：</h4>
 						<Tangshi_list></Tangshi_list>
 					</div>
 					<div class="col-md-6">
 						<ul class="nav nav-pills  hxp-pointer">
-							<li v-for="(item,index) in liList" @click="addClass(index);change_Tangshi_key($event)" v-bind:class="{ active:index==current}">
+							<li><a>热门诗人:</a></li>
+							<li v-for="(item,index) in liList" @click="addClass(index);change_Tangshi_key(event)" :key="index" v-bind:class="{ active:index==current}">
 								<a>{{item}}</a></li>
 						</ul>
 						<img src="img/hxp-head.png" style="width: 9em;height:4.2em" />
-						<input type="text" v-model="selectval" style="width: 17em;height:2em">
+						<input type="text" v-model="selectval" class="hxp-select">
 						<button @click="select">
-								<svg class="icon" style="font-size: 1.6em;">
+								<svg class="icon" style="font-size: 1.3em;">
 										<use xlink:href="#icon-huaban6"></use>
 									</svg>
 						搜一搜</button>
@@ -99,8 +102,9 @@
 						  <tianqi></tianqi>
 						</div>
 						<div class="hxp-pinglun-container">
-						<input type="text"style="width: 13em;height:2em"><button>留言</button>
-						<div>
+						<input type="text"style="width: 13em;height:2em"><button>留言</button><br>
+						<p class="text-center">近期评论</p>
+						<div class="hxp-size-">
 								<pinglun></pinglun>
 						</div>
 						
@@ -116,16 +120,16 @@
 		<div>
 		<ul class="nav nav-tabs nav-stacked" v-for="(item,index) in list":key="index" >
 			<li class="nav-item text-center" >
-				<a href="#" class="nav-link active">{{item.title}}（{{item.author}}）</a>
+				<a @click="hrefShow(item)" class="nav-link active">{{item.title}}（{{item.author}}）</a>
 			</li>
 		</ul>
 	 </div>
 	</template>
 	<!-- 当前天气信息组件 -->
 	<template id="hxp-tianqi">
-		<div class="hxp-tianqi-info">
+		<div class="hxp-tianqi-info" style="width: 360px">
 			<div class="hxp-tianqi-info-icon">
-			<img src="cucumber/lei.png" title="嘿、我是土豆哥"alt="图标咋没加载...">
+			<img src="cucumber/yun.png" title="嘿、我是土豆哥"alt="图标咋没加载...">
 			<a id="jinrishici-sentence">正在加载今日诗词....</a>
 		    </div>			
 			<div class="hxp-tianqi-info-data">
@@ -146,17 +150,9 @@
 	<!-- 评论内容组件 -->
 	<template id="hxp-pinglun">
 		<div>
-			<a class="text-conter">近期评论</a>
 			<div>
-				<p class="text-left">刘二狗：</p>
-				<a class ="text-center">今天天气看起来不错哟~今天天气看起来不错哟~今天天气看起来不错哟~</a>
-				<P class="text-right">2019-8-9 17:02:50</P>
+				{{pinglun}}
 			</div>
-			<div>
-					<p class="text-left">刘二狗：</p>
-					<a class ="text-center">今天天气看起来不错哟~今天天气看起来不错哟~今天天气看起来不错哟~</a>
-					<P class="text-right">2019-8-9 17:02:50</P>
-				</div>
 		</div>
 		
 	</template>
@@ -178,14 +174,14 @@
 					<th>序号</th>
 					<th>作品名</th>
 					<th>作者</th>
-					<th>刷新时间</th>
-					<th>不喜欢</th>
+					<th>时间</th>
+					<th>删除</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr v-for="(itm,index) in newslist" :key="index" class="hxp-shadow">
 					<td>{{index+1}}</td>
-					<td :title="itm.content">{{itm.title|hxpcode}}</td>
+					<td :title="itm.content"@click="hrefShow(itm)">{{itm.title|hxpcode}}</td>
 					<td>{{itm.author}}</td>
 					<td>{{time|hxptime}}</td>
 					<td><a @click.prevent="del(index)">

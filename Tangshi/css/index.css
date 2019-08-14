@@ -1,6 +1,7 @@
 body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 14px;
+    /* font-size: 62.5%; */
 }
 .top-bar{
     height: 40px;
@@ -19,24 +20,15 @@ body{
     display: block;
     z-index: 1;
 }
-.row .row-2{
-    border-left: 1px solid gray;
-}
-.row .row-3{
+.hxp-fenge{
     border-left: 1px solid gray;
   
-}
-.row .row-4{
-    border-left: 1px solid gray;
 }
 .top-nav{
     z-index: 2;
 }
-.navplus{
-    margin-top: 10px;
-}
 .navplus li{
-    margin-left: 30px;
+    margin-left: 2.5em;
 }
 .navplus img{
     width:40px;
@@ -55,7 +47,7 @@ body{
     background: linear-gradient(to bottom, #d1d8eb 40%, #222 100%);
     border-radius: 5px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
-    width: 17em;
+    width: 20em;
     height: 17em;
     display: flex;
     align-items: flex-end;
@@ -102,5 +94,14 @@ body{
     top: 3em;
 }
 #hxp{
-    background-image:url(../img/data_bg.jpg);
+    background:url(../img/data_bg.jpg);
+    height: 80em;
+}
+.hxp-select{
+    width: 9.5em;
+    height:1.5em;
+}
+.hxp-size-{
+    height: 7em;
+    overflow-x: hidden;
 }
