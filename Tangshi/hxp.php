@@ -19,7 +19,6 @@
 			$success['pinglun']=$info;
 	}
 	}
-	//--如果找不到数据库连接信息，则返回状态玛3;
 	else{
 		$success['infoCode']=1;
 		//0数据库连接失败;
