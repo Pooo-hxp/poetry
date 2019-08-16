@@ -50,7 +50,7 @@
 					}
 				},
 				mounted() {
-				axios
+				axios//因为跨域问题的存在，这里准备改用ajax
 				.get('tangshi.json')
 				.then(res=>{
 					let newlist=res.data.list;
