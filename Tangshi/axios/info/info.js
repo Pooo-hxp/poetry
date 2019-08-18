@@ -20,6 +20,7 @@
         /*去掉字符串末尾那个P标签并格式化释义*/
         var appreciation=obj.appreciation.replace(/<\/p>/g,"");
     }else{
+        /*若数据中心无释义*/
         var  translation=['未检索到数据'];
         var appreciation='未检索到数据';
     }
