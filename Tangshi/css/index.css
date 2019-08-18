@@ -6,7 +6,7 @@ body{
 .top-bar{
     height: 40px;
     line-height: 39px;
-    border-bottom: 1px solid rgba(255,0,0,0.2);
+    border-bottom: 1px solid rgba(255,0,0,0.3);
 }
 .row .row-1{
     position: relative;
