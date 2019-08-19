@@ -50,13 +50,23 @@
 					}
 				},
 				mounted() {
-				axios//跨域问题的存在，这里准备改用ajax
-				.get('tangshi.json')
-				.then(res=>{
-					let newlist=res.data.list;
-					this.list=newlist;
-					console.log(this.list);
-				})	
+					$.ajax({
+						type:'get',
+						dataType:'JSON',
+						url:'tangshi.json',
+						success:function(res){
+						let newlist=res.list;
+					    this.list=newlist;
+							console.log(this.list);
+						}
+					})
+				// axios//跨域问题的存在，这里准备改用ajax
+				// .get('tangshi.json')
+				// .then(res=>{
+				// 	let newlist=res.data.list;
+				// 	this.list=newlist;
+				// 	console.log(this.list);
+				// })	
 				},
 				methods: {
 					hrefShow:function(e){
