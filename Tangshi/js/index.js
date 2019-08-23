@@ -189,13 +189,13 @@
 					hxpcode: function (title) {
 						return title.replace(/。/g, "·");
 					},
-					hxptime: function (time) {
-						let dt = new Date(time);
-						let Y = dt.getFullYear();
-						let M = dt.getMonth() + 1;
-						let D = dt.getDate();
-						return `${Y}.${M}.${D}`;
-					}
+					// hxptime: function (time) {
+					// 	let dt = new Date(time);
+					// 	let Y = dt.getFullYear();
+					// 	let M = dt.getMonth() + 1;
+					// 	let D = dt.getDate();
+					// 	return `${Y}.${M}.${D}`;
+					// }
 				},
 				mounted() {
 					let action = 'poetries';
