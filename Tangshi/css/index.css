@@ -76,8 +76,6 @@ body{
     width: 2.0em;
     height: 100%;
     line-height: 4em;
-    /* border-right: 0.05em solid gray; */
-    position: relative;
     font-size: 1.8em;
 }
 .tianqi-info-right{
