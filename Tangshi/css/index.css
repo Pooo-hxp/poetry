@@ -3,6 +3,9 @@ body{
     font-size: 14px;
     /* font-size: 62.5%; */
 }
+ul li{
+    list-style: none;
+}
 .top-bar{
     height: 40px;
     line-height: 39px;
