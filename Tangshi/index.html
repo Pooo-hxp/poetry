@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/index.css">
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<title>诗词</title>
 </head>
 
@@ -47,7 +47,7 @@
 						<svg class="icon" style="font-size: 30px;">
 							<use xlink:href="#icon-huaban5"></use>
 						</svg>
-						<a href="" role="button" class=" btn btn-sm"  @click.prevent="">给我留言</a>
+						<a href="" role="button" class=" btn btn-sm" @click.prevent="">给我留言</a>
 					</div>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 					<a href="https://www.xipengheng.cn/?cat=5">JavaScript笔记</a>
 				</li>
 				<li class="">
-						<a href="https://www.xipengheng.cn/?cat=32">Vue笔记</a>
+					<a href="https://www.xipengheng.cn/?cat=32">Vue笔记</a>
 				</li>
 				<li class="active ">
 					<a href="#">诗词</a>
@@ -83,58 +83,59 @@
 					<div class="col-md-6">
 						<ul class="nav nav-pills  hxp-pointer">
 							<li><a>热门诗人:</a></li>
-							<li v-for="(item,index) in liList" @click="addClass(index);change_Tangshi_key(event)" :key="index" v-bind:class="{ active:index==current}">
+							<li v-for="(item,index) in liList" @click="addClass(index);change_Tangshi_key(event)"
+								:key="index" v-bind:class="{ active:index==current}">
 								<a>{{item}}</a></li>
 						</ul>
 						<img src="img/hxp-head.png" style="width: 9em;height:4.2em" />
 						<input type="text" v-model="selectval" class="hxp-select">
 						<button @click="select">
-								<svg class="icon" style="font-size: 1.3em;">
-										<use xlink:href="#icon-huaban6"></use>
-									</svg>
-						搜一搜</button>
-						<div id=""  v-if="loadSurvey">
+							<svg class="icon" style="font-size: 1.3em;">
+								<use xlink:href="#icon-huaban6"></use>
+							</svg>
+							搜一搜</button>
+						<div id="" v-if="loadSurvey">
 							<Tangshi :Tangshi_key="Tangshi_key"></Tangshi>
 						</div>
 					</div>
 					<div class="col-md-3 ">
 						<div class="hxp-tianqi-container">
-						  <tianqi></tianqi>
+							<tianqi></tianqi>
 						</div>
 						<div class="hxp-pinglun-container">
-						<input type="text"style="width: 13em;height:2em"><button>留言</button><br>
-						<p class="text-center">近期评论</p>
-						<div class="hxp-size-">
+							<input type="text" style="width: 13em;height:2em" id="liuyan_info"><button @click="Ajax_pinglun">留言</button><br>
+							<p class="text-center">近期评论</p>
+							<div class="hxp-size-">
 								<pinglun></pinglun>
+							</div>
+
 						</div>
-						
-					    </div>
 					</div>
 				</div>
 			</div>
 
 		</div>
 	</header>
-	固定诗词列表组件
+	<!-- 固定诗词列表组件 -->
 	<template id="hxp-Tangshi-guding">
 		<div>
-		<ul class="nav nav-tabs nav-stacked" v-for="(item,index) in list":key="index" >
-			<li class="nav-item text-center" >
-				<a @click="hrefShow(item)" class="nav-link active">{{item.title}}（{{item.author}}）</a>
-			</li>
-		</ul>
-	 </div>
+			<ul class="nav nav-tabs nav-stacked" v-for="(item,index) in list" :key="index">
+				<li class="nav-item text-center">
+					<a @click="hrefShow(item)" class="nav-link active">{{item.title}}（{{item.author}}）</a>
+				</li>
+			</ul>
+		</div>
 	</template>
 	<!-- 当前天气信息组件 -->
 	<template id="hxp-tianqi">
 		<div class="hxp-tianqi-info" style="width: 360px">
 			<div class="hxp-tianqi-info-icon">
-			<img src="cucumber/yun.png" title="嘿、我是土豆哥"alt="图标咋没加载...">
-			<a id="jinrishici-sentence">今日诗词....</a>
-		    </div>			
+				<img src="cucumber/yun.png" title="嘿、我是土豆哥" alt="图标咋没加载...">
+				<a id="jinrishici-sentence">今日诗词....</a>
+			</div>
 			<div class="hxp-tianqi-info-data">
 				<div class="tianqi-info-left">
-						{{tianqi_real}}
+					{{tianqi_real}}
 				</div>
 				<div class="tianqi-info-right">
 					<ol>
@@ -142,7 +143,7 @@
 						<li>天气:{{tianqi_weather}}</li>
 						<li>气温:{{tianqi_lowest}}/{{tianqi_highest}}</li>
 						<li>空气质量:{{tianqi_air_level}}</li>
-				    </ol>
+					</ol>
 				</div>
 			</div>
 		</div>
@@ -150,11 +151,13 @@
 	<!-- 评论内容组件 -->
 	<template id="hxp-pinglun">
 		<div>
-			<div>
-				{{pinglun}}
-			</div>
+			<ul v-for="item in pinglun">
+				<div>
+					<li class="text-left">{{item.content}}</li>
+					<li class="text-right">{{item.time}}</li>
+				</div>
+			</ul>
 		</div>
-		
 	</template>
 	<!--随机一句诗词配合当前天气 -->
 	<template id="hxp-ever">
@@ -167,7 +170,7 @@
 		</div>
 	</template>
 	<!-- 动态诗词列表组件 -->
-	<template id="hxp-Tangshi" >
+	<template id="hxp-Tangshi">
 		<table class="table  table-inverse table-responsive table-hover hxp-pointer">
 			<thead class="thead-inverse">
 				<tr>
@@ -181,14 +184,14 @@
 			<tbody>
 				<tr v-for="(itm,index) in newslist" :key="index" class="hxp-shadow">
 					<td>{{index+1}}</td>
-					<td :title="itm.content"@click="hrefShow(itm)">{{itm.title|hxpcode}}</td>
+					<td :title="itm.content" @click="hrefShow(itm)">{{itm.title|hxpcode}}</td>
 					<td>{{itm.author}}</td>
 					<td>{{time|hxptime}}</td>
 					<td><a @click.prevent="del(index)">
-						<svg class="icon" style="font-size: 25px;">
-							<use xlink:href="#icon-haipabiaoqing"></use>
-						</svg>
-					</a></td>
+							<svg class="icon" style="font-size: 25px;">
+								<use xlink:href="#icon-haipabiaoqing"></use>
+							</svg>
+						</a></td>
 				</tr>
 			</tbody>
 		</table>
