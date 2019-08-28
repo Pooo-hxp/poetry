@@ -5,21 +5,21 @@
 	var vm = new Vue({
 		el: '#hxp',
 		data: {
-			loadSurvey:true,//重新渲染组件
-			selectval:null,//同步搜索框内容
-			Tangshi_key:'杜牧',//用来向子组件传值
-			liList:['李白','杜甫','李商隐','王维'],
-			current:3,//诗人列表及默认选中
+			loadSurvey: true,//重新渲染组件
+			selectval: null,//同步搜索框内容
+			Tangshi_key: '杜牧',//用来向子组件传值
+			liList: ['李白', '杜甫', '李商隐', '王维'],
+			current: 3,//诗人列表及默认选中
 			newslist: {}//存放诗词信息
 		},
 		methods: {
-			addClass:function(index){ 
-				 this.current=index;
-				 console.log('父子组件传值成功');
-				 },
-			change_Tangshi_key:function (e) {
+			addClass: function (index) {
+				this.current = index;
+				console.log('父子组件传值成功');
+			},
+			change_Tangshi_key: function (e) {
 				console.log(e.target);
-				this.Tangshi_key=e.target.text;
+				this.Tangshi_key = e.target.text;
 				this.loadSurvey = false;
 				/*修改了Tangshi_key的值，但是此时再通过dom取到的值还未改变*/
 				/*大坑：一个事件循环tick后再修改，因为dom异步更新要在下一个'tick'更新。*/
@@ -29,55 +29,71 @@
 				})
 				console.log('组件模板重新渲染成功');
 			},
-			select:function(){
-				this.current=999;
+			select: function () {
+				this.current = 999;
 				/*搜索时取消默认列表选中样式*/
-				this.Tangshi_key=this.selectval;
+				this.Tangshi_key = this.selectval;
 				/*同步更新搜索框内容selectval*/
 				this.loadSurvey = false;
 				this.$nextTick(() => {
 					this.loadSurvey = true;
 				})
 			},
+			/*发送留言信息*/
+			Ajax_pinglun:function(){
+				let url = 'https://www.xipengheng.cn/Tangshi/Ajax_hxp.php';
+				let info=$("#liuyan_info").val();
+				let dt = new Date();
+				let Y = dt.getFullYear();
+				let M = dt.getMonth() + 1;
+				let D = dt.getDate();
+					$.ajax({
+						type:'post',
+						dataType:'JSON',
+						url:url,
+						data:{
+							content:info,
+							time:`${Y}.${M}.${D}`
+						},
+						success:function(res){
+							console.log(res);
+							console.log('留言成功');
+						},
+						erro:function(){
+							console.log('留言失败');
+						}
+					})
+			},
 
 		},
 		components: {
-			Tangshi_list:{
-				template:'#hxp-Tangshi-guding',
-				data:function(){
-					return{
-						list:null
+			Tangshi_list: {
+				template: '#hxp-Tangshi-guding',
+				data: function () {
+					return {
+						list: null
 					}
 				},
 				mounted() {
-					// $.ajax({
-					// 	type:'get',
-					// 	dataType:'JSON',
-					// 	url:'tangshi.json',
-					// 	success:function(res){
-					// 	let newlist=res.list;
-					//     this.list=newlist;
-					// 		console.log(this.list);
-					// 	}
-					// })
-				axios//跨域问题的存在
-				.get('tangshi.json')
-				.then(res=>{
-					let newlist=res.data.list;
-					this.list=newlist;
-					console.log(this.list);
-				})	
+
+					axios//跨域问题的存在
+						.get('tangshi.json')
+						.then(res => {
+							let newlist = res.data.list;
+							this.list = newlist;
+							console.log(this.list);
+						})
 				},
 				methods: {
-					hrefShow:function(e){
-						window.localStorage.setItem('obj',JSON.stringify(e));
-						window.location.href='axios/info/show.html';			
+					hrefShow: function (e) {
+						window.localStorage.setItem('obj', JSON.stringify(e));
+						window.location.href = 'axios/info/show.html';
 					}
 				},
 			},
-/**
- * 自定义获取实时天气信息组件
- * */
+			/**
+			 * 自定义获取实时天气信息组件
+			 * */
 			tianqi: {
 				template: '#hxp-tianqi',
 				data: function () {
@@ -85,7 +101,7 @@
 						tianqi_week: null,
 						tianqi_weather: null,
 						tianqi_weatherimg: null,
-						tianqi_real:null,
+						tianqi_real: null,
 						tianqi_lowest: null,
 						tianqi_highest: null,
 						tianqi_air_level: null,
@@ -112,26 +128,27 @@
 						})
 				},
 				methods: {
-					
+
 				},
 			},
-	/*
-		* 自定义评论组件
-	*/
+			/*
+				* 自定义评论组件
+			*/
 			pinglun: {
 				template: '#hxp-pinglun',
 				data: function () {
 					return {
-						pinglun:null
+						pinglun: null
 					}
 				},
 				mounted() {
+					let url = 'https://www.xipengheng.cn/Tangshi/hxp.php';
 					axios
-					.get(hxp.php)
-					.then(res=>{
-						this.pinglun=res;
-						console.log(res);
-					})
+						.get(url)
+						.then(res => {
+							this.pinglun = res.data.pinglun;
+							console.log(res);
+						})
 				},
 			},
 			ever: {
@@ -169,7 +186,7 @@
 				template: '#hxp-Tangshi',
 				data: function () {
 					return {
-						Tangshi_key:null,
+						Tangshi_key: null,
 						time: new Date,
 						newslist: null,
 					}
@@ -178,10 +195,10 @@
 					del(index) {
 						this.newslist.splice(index, 1);
 					},
-					hrefShow:function(e){
+					hrefShow: function (e) {
 						console.log(e);
-						window.localStorage.setItem('obj',JSON.stringify(e));
-						window.location.href='axios/info/show.html';
+						window.localStorage.setItem('obj', JSON.stringify(e));
+						window.location.href = 'axios/info/show.html';
 					}
 				},
 				/*存放一些我自定义的数据过滤器*/
@@ -210,9 +227,9 @@
 							console.log('axios数据请求成功');
 						})
 				},
-				props:['Tangshi_key'],//组件传值
+				props: ['Tangshi_key'],//组件传值
 			}
-			
+
 		},
 		beforeCreate() {
 		},
