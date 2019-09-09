@@ -58,6 +58,7 @@
 						success:function(res){
 							console.log(res);
 							console.log('留言成功');
+							$("#liuyan_info").val("");
 						},
 						erro:function(){
 							console.log('留言失败');
@@ -75,8 +76,7 @@
 					}
 				},
 				mounted() {
-
-					axios//跨域问题的存在
+					axios
 						.get('tangshi.json')
 						.then(res => {
 							let newlist = res.data.list;
