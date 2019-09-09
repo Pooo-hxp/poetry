@@ -86,7 +86,10 @@
 				},
 				methods: {
 					hrefShow: function (e) {
-						window.localStorage.setItem('obj', JSON.stringify(e));
+						console.log('是我啊是啊啊');
+						console.log(e);
+						sessionStorage.setItem('obj', JSON.stringify(e));
+						alert('110');
 						window.location.href = 'axios/info/show.html';
 					}
 				},
