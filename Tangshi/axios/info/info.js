@@ -9,7 +9,7 @@
         cursorborderradius: "3px",//以像素为光标边界半径 
         autohidemode: true //是否隐藏滚动条 
     });
-    let obj = JSON.parse(window.localStorage.getItem('obj'));
+    let obj = JSON.parse(localStorage.getItem('obj'));
     console.log(obj);/*接受前页面传来的数据*/   
     let content = obj.content.split('。');
     content.pop();/*去掉空行并格式化诗词*/
@@ -24,8 +24,6 @@
         var  translation=['未检索到数据'];
         var appreciation='未检索到数据';
     }
-   
-  
     var vm1 = new Vue({
         el: '.app1 ',
         data: {
