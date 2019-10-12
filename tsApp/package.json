@@ -1,0 +1,26 @@
+{
+  "name": "tangshi",
+  "version": "1.0.0",
+  "description": "使用vue做一个诗词的浏览页面\r #### 技术栈为vue+axios+bootstrap+php+mysql\r --- \r - 10月11号开始代码重构",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GitHpotato/tangshi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GitHpotato/tangshi/issues"
+  },
+  "homepage": "https://github.com/GitHpotato/tangshi#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
+  }
+}
