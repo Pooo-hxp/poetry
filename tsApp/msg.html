@@ -12,10 +12,95 @@
 </head>
 
 <body>
-    <div class="head">
+    <div class="app header">
+        <div class="container msg-text"  >
+            <!--
+                contenteditable="true"获取div焦点且内容可编辑
+                tabindex="0"获取div焦点不可编辑
+            -->
+            <div class="col-xs-9 col-md-9">
+                <div  contenteditable="true" class="msg-textinfo">
+                        说点啥吧，秋梨膏
+                </div>
+            </div>
+            <div class="col-xs-3 col-md-3 msg-btn">
+                <button class="form-control btn-success">发表</button>
+            </div>
+        </div>
+        <div class="container msg-filter">
+            全部评论
+        </div>
+        <ol class="container msg-list">
+            <li class="">
+                    <div class="container hxp-msg-list">
+                        <p class="text-left col-md-4">
+                            <div class="hxp-msg-list-headpotato ">
+                                <img src="src/common/image/photo/foo.jpg" alt="" srcset="">
+                            <strong>S_Pooo</strong><br>
+                            <em>2019.10.24</em>
+                            </div>
+                        </p>
+                        <p class=" col-md-4">
+                            我，土豆哥，是全世界最帅的男人
+                        </p>
+                        <p class="text-right col-md-4">
+                            <div class="text-right hxp-msg-list-icon">
+                                <a href=""><img src="src/common/image/icon/赞(前).png" alt="">（3）</a>
+                                <a href=""><img src="src/common/image/icon/踩(后).png" alt="">（99+）</a>
+                            </div>
+                        </p>
+                    </div>
+            </li>
+            <li class="">
+                    <div class="container hxp-msg-list">
+                            <p class="text-left col-md-4">
+                                <div class="hxp-msg-list-headpotato ">
+                                    <img src="src/common/image/photo/hxp.png" alt="" srcset="">
+                                <strong>T_Mooo</strong><br>
+                                <em>2019.10.21</em>
+                                </div>
+                            </p>
+                            <p class=" col-md-4">
+                                我是一头大象，我真的爱到处吃草！
+                            </p>
+                            <p class="text-right col-md-4">
+                                <div class="text-right hxp-msg-list-icon">
+                                    <a href="javascript:;"><img src="src/common/image/icon/赞(后).png" >（18）</a>
+                                    <a href="javascript:void(0)"><img src="src/common/image/icon/踩(前).png" >（3）</a>
+                                </div>
+                            </p>
+                        </div>
+            </li>
+            <li class="">
+                    <div class="container hxp-msg-list">
+                            <p class="text-left col-md-4">
+                                <div class="hxp-msg-list-headpotato ">
+                                    <img src="src/common/image/photo/foo.jpg" alt="" srcset="">
+                                <strong>T_Mooo</strong><br>
+                                <em>2019.10.20</em>
+                                </div>
+                            </p>
+                            <p class=" col-md-4">
+                                今天的郑州天气真的很冷啊啊啊啊！
+                                明天就该回学校了带点东西
+                            </p>
+                            <p class="text-right col-md-4">
+                                <div class="text-right hxp-msg-list-icon">
+                                    <a href=""><img src="src/common/image/icon/赞(前).png" alt="">（12）</a>
+                                    <a href=""><img src="src/common/image/icon/踩(前).png" alt="">（44）</a>
+                                </div>
+                            </p>
+                        </div>
+            </li>
+            <li class="">
+                    <div class="hxp-msg-list">
+                            这是一条留言
+                    </div>
+                </li>
+        </ol>
     </div>
-    <div class="maskingimg" id="maskingimg"></div>
-    <div class="maskingcolor"></div>
+    <div class="maskingimg" id="maskingimg"></div><!-- 利用positon:absolute/z-index:-1使其固定于最底层 -->
+    <div class="maskingcolor"></div> <!-- 利用positon:absolute/z-index:-2使其固定于最底层 -->
     <div class="footer">
     <!-- 固定功能项于可视化页脚 -->
         <div class="row  hxp-option">
