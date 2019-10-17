@@ -40,12 +40,6 @@ ul li {
     background: whitesmoke;
 }
 
-.hxp-weather-footer-left {
-    position: relative;
-    top: 2rem;
-    font-size: 3rem;
-}
-
 .hxp-weather-footer-left,
 .hxp-weather-footer-right {
     width: 50%;
