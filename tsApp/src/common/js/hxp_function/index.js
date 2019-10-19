@@ -32,6 +32,7 @@ $(function(){
                     })
                 },
                 filters:{
+                    /**私有过滤器，规范输出日期 */
                     filtertime:function(time){
                         let dt = new Date(time);
 						let Y = dt.getFullYear();
