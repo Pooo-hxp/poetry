@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/common/style/main.css">
     <link rel="stylesheet" href="src/common/style/msg.css">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <!-- 每隔五秒刷新一下页面    -->
     <title>主页面</title>
 </head>
 
@@ -19,12 +21,12 @@
                 tabindex="0"获取div焦点不可编辑
             -->
             <div class="col-xs-9 col-md-9">
-                <div contenteditable="true" class="msg-textinfo">
+                <div contenteditable="true" class="msg-textinfo" id="msg-textinfo">
                     说点啥吧，秋梨膏
                 </div>
             </div>
             <div class="col-xs-3 col-md-3 msg-btn">
-                <button class="form-control btn-success">发表</button>
+                <button class="form-control btn-success" @click='axios_post()'>发表</button>
             </div>
         </div>
         <div class="container msg-filter">
@@ -44,13 +46,13 @@
                             <em>{{item.MsgTime}}</em>
                         </div>
                     </p>
-                    <p class=" col-md-4">
+                    <p class=" col-md-4" style="height: 4rem; overflow: auto;">
                         {{item.Msg}}
                     </p>
                     <p class="text-right col-md-4">
                         <div class="text-right hxp-msg-list-icon">
-                            <a href="" @click='tt(index)'><img src="src/common/image/icon/赞(前).png" alt="">（{{item.Like}}）</a>
-                            <a href=""><img src="src/common/image/icon/踩(后).png" alt="">（{{item.Sick}}）</a>
+                            <a href="" @click='tt(index)'><img src="src/common/image/icon/赞(前).png"  :title=item.UserName>（{{item.Like}}）</a>
+                            <a href=""><img src="src/common/image/icon/踩(前).png" :title=item.UserName>（{{item.Sick}}）</a>
                         </div>
                     </p>
                 </div>

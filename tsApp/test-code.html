@@ -6,28 +6,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+    #x{
+        width: 100px;
+        height: 100px;
+        background: #000;
+    }
+    </style>
 </head>
 <body>
+<div id="x">
 
+</div>
 
 </body>
 <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script>
 (function(){
-    $.ajax({
-        type:'post',
-        data:{
-            UserName:'hengxipeng',
-            msg:'这是一个测试文本',
-            msgTime:'2019.10.22'
-        },
-        url:'https://www.xipengheng.cn/AAA/liuyan.php',
-        success(res){
-            console.log(res);
-        }
-        
-    })
+    window.onload = function () {  
+
+var oDiv = document.getElementById('x');
+
+oDiv.onmouseover = function () {  
+    startMove(oDiv,'width',500,function () {  
+        alert('1');
+    });
+};
+oDiv.onmouseout = function () {  
+    startMove(oDiv,'width',100,function () {  
+        alert('1');
+    });
+};
+
+
+}
 })()
 
 </script>
