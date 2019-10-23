@@ -51,8 +51,9 @@
                     </p>
                     <p class="text-right col-md-4">
                         <div class="text-right hxp-msg-list-icon">
-                            <a href="" @click='tt(index)'><img src="src/common/image/icon/赞(前).png"  :title=item.UserName>（{{item.Like}}）</a>
-                            <a href=""><img src="src/common/image/icon/踩(前).png" :title=item.UserName>（{{item.Sick}}）</a>
+                            <a href="" @click.prevent='like(item.MsgID,item.Like)'><img src="src/common/image/icon/赞(前).png">（{{item.Like}}）</a>
+                            <!-- 这里我在icon上绑定留言的ID，为的是保证赞/踩计数到对应的评论上 -->
+                            <a href=""  @click.prevent='sick(item.MsgID,item.Sick)'><img src="src/common/image/icon/踩(前).png">（{{item.Sick}}）</a>
                         </div>
                     </p>
                 </div>
