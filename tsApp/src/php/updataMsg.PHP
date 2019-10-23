@@ -4,18 +4,15 @@
  header('Access-Control-Allow-Methods:POST,GET,OPTIONS,DELETE'); // 允许请求的类型
  header('Access-Control-Allow-Credentials: true'); // 设置是否允许发送 cookies
  header('Access-Control-Allow-Headers: Content-Type,Content-Length,Accept-Encoding,X-Requested-with, Origin');
-    $UserName='"'.$_POST['UserName'].'"';
-    $msg='"'.$_POST['msg'].'"';
-    $msgTime='"'.$_POST['msgTime'].'"';
-    $like="0";
-    $sick="0";
-    /**初始留言时，点赞和踩都计数为零 */
+    $like=$_POST['like'];
+    $MsgID=$_POST['MsgID'];
+    /**通过前台传来的留言ID搜寻数据库中对于留言，更改点赞量*/
     $con=mysqli_connect('localhost','login','hengxipeng123','login');
     if($con){
         mysqli_query($con,'set names utf8');
         mysqli_query($con,'set character_set_client=utf8');
         mysqli_query($con,'set character_set_results=utf8');
-        $sql="INSERT INTO `TangMsg`(`UserName`, `Msg`, `MsgTime`, `Like`, `Sick`) VALUES ($UserName,$msg,$msgTime,$like,$sick)";
+        $sql="UPDATE `TangMsg` SET `Like`=$like WHERE MsgID=$MsgID";
       	$result=$con->query($sql);
        $success=array('msg'=>$sql);
     }       
