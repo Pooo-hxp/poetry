@@ -4,9 +4,12 @@ $(function(){
     var vm=new Vue({
         el:'#app',
         data: {
+            getlist:null
         },
         methods: {
-            
+            select_ts:(()=>{
+                this.getlist='123';
+            })
         },
         components:{
             /**本地JSON渲染出诗词列表 */
