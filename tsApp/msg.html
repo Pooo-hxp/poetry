@@ -21,7 +21,7 @@
                 tabindex="0"获取div焦点不可编辑
             -->
             <div class="col-xs-9 col-md-9">
-                <div contenteditable="true" class="msg-textinfo" id="msg-textinfo">
+                <div contenteditable="true" class="msg-textinfo" id="msg-textinfo" >
                     说点啥吧，秋梨膏
                 </div>
             </div>
@@ -36,7 +36,7 @@
     </div>
     <!-- 留言区详情组件 -->
     <template id="msg">
-        <ol class="container msg-list" >
+        <ol class="container msg-list">
             <li class="" v-for="(item,index) in list" :key="index">
                 <div class="container hxp-msg-list">
                     <p class="text-left col-md-4">
@@ -51,9 +51,15 @@
                     </p>
                     <p class="text-right col-md-4">
                         <div class="text-right hxp-msg-list-icon">
-                            <a href="" @click.prevent='like(item.MsgID,item.Like)'><img src="src/common/image/icon/赞(前).png">（{{item.Like}}）</a>
-                            <!-- 这里我在icon上绑定留言的ID，为的是保证赞/踩计数到对应的评论上 -->
-                            <a href=""  @click.prevent='sick(item.MsgID,item.Sick)'><img src="src/common/image/icon/踩(前).png">（{{item.Sick}}）</a>
+                            <a href="" @click.prevent='like(item.MsgID,item.Like,index)'>
+                                <img src="src/common/image/icon/赞(前).png">（{{item.Like}}）</a>
+                                
+                            <!-- 
+                                这里函数我分别传入当前留言ID号，当前计数，序号
+                                为的是写入数据库时能赞/踩计数到对应的评论上
+                             -->
+                            <a href="" @click.prevent='sick(item.MsgID,item.Sick,index)'>
+                                <img src="src/common/image/icon/踩(后).png">（{{item.Sick}}）</a>
                         </div>
                     </p>
                 </div>
