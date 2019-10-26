@@ -1,0 +1,4 @@
+jquery
+bootstr
+vue
+axios
