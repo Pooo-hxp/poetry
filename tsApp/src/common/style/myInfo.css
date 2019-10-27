@@ -50,13 +50,22 @@
     border-radius:50%;
     height: 100%;
 }
-.header-info-name{
-
-}
-
 .header-list{
     width: 100%;
     height: 70%;
     height: 45rem;
     background: rgba(245, 244, 245, 0.345);
+}
+/* 隐藏的登录页面 */
+.login{
+    position: absolute;
+    width: 90%;
+    height: 60%;
+    left: 2rem;
+    top: 2rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background: url(../image/photo/data_bg.jpg);
+}
+.menu{
 }

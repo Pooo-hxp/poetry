@@ -15,7 +15,7 @@
                 params.append('msg', msg);
                 params.append('msgTime', `${Y}.${M}.${D}`);
                 axios
-                    .post('https://www.xipengheng.cn/AAA/liuyan.php', params)
+                    .post('https://www.xipengheng.cn/AAA/insertMsg.php', params)
                     .then(res => {
                         console.log('留言数据写入正常');
                         location.reload();/**重载 */
@@ -33,7 +33,7 @@
                 },
                 mounted() {
                     axios
-                        .get('https://www.xipengheng.cn/AAA/test.php')
+                        .get('https://www.xipengheng.cn/AAA/selectMsg.php')
                         .then(res => {
                             var newlist = res.data.message.reverse();
                             /**这里我后期优化一下，调用了reverse方法
