@@ -47,11 +47,11 @@
         </div>
         <div class="container">
             <strong>热门诗人：</strong> <!-- 推荐：热门诗人列表 -->
-            <button class="btn btn-success btn-sm">李白</button>
-            <button class="btn btn-danger btn-sm">杜甫</button>
-            <button class="btn btn-warning btn-sm">刘禹锡</button>
-            <button class="btn btn-info btn-sm">李商隐</button>
-            <button class="btn btn-danger btn-sm">王维</button>
+            <button class="btn btn-success btn-sm" @click='Change_Tangshi_key($event)'>李白</button>
+            <button class="btn btn-danger btn-sm"@click='Change_Tangshi_key($event)'>杜甫</button>
+            <button class="btn btn-warning btn-sm"@click='Change_Tangshi_key($event)'>刘禹锡</button>
+            <button class="btn btn-info btn-sm"@click='Change_Tangshi_key($event)'>李商隐</button>
+            <button class="btn btn-danger btn-sm"@click='Change_Tangshi_key($event)'>王维</button>
         </div>
         <div class="container">
             <div class="row"><!-- 在线搜索表单 -->
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="container hxp-tangshi-list" v-if="reload">
-            <hxpstatic :Tangshi_key="Tangshi_key" :Songci_key="Songci_key"></hxpstatic> <!--诗词列表组件引用 -->
+            <hxppoetry :Tangshi_key="Tangshi_key" :Songci_key="Songci_key"></hxppoetry> <!--诗词列表组件引用 -->
         </div>
         <hxpweather></hxpweather><!--实时天气信息组件引用 -->
         <div>
@@ -163,7 +163,7 @@
                 <td>{{item.title}}</td>
                 <td>{{item.author}}</td>
                 <td>{{time|filtertime}}</td>
-                <td ><a href=""@click.prevent="del(index)"><img src="/src/common/image/icon/删除.png" ></a></td>
+                <td><a href=""@click.prevent="del(index)"><img src="/src/common/image/icon/删除.png" ></a></td>
             </tr>
         </tbody>
     </table>
@@ -175,6 +175,6 @@
 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 <script src="src/common/js/axios/dist/axios.min.js"></script>
 <script src="src/common/js/hxp_function/index.js"></script>
-<script src="src/common/js/hxp_function/chickme.js"></script>
+<script src="src/common/js/hxp_function/clickme.js"></script>
 
 </html>

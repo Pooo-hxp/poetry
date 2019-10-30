@@ -8,22 +8,16 @@ $UserName=$_POST['UserName'];
 $PassWord=$_POST['PassWord'];
 $con=mysqli_connect('localhost','login','hengxipeng123','login');
 if($con){
-    mysqli_query($con,'set names utf8');
+  mysqli_query($con,'set names utf8');
 	mysqli_query($con,'set character_set_client=utf8');
 	mysqli_query($con,'set character_set_results=utf8');
-  $sql = "SELECT * FROM `TangUserData` WHERE UserName='$UserName'";
-  $success=array('msg'=>$sql);
+  $sql = "SELECT * FROM `TangLogin` WHERE UserName='$UserName'&&PassWord='$PassWord'";
   $result=$con->query($sql);
-  if($result->num_rows>0){			
-	$info=[];
- /*$result->fetch_assoc()每次只取出一条数据*/
-	for($i=0;$row=$result->fetch_assoc();$i++){
-		$info[$i]=$row;
-	}
-	$success['message']=$info;
-    }	
+  $result->num_rows>0?$success['infoCode']=1
+  /**提供的账号和密码存在就返回状态码1，否则返回0 */
+  :$success['infoCode']=2;
 }else{
-        $success['message']='数据库连接失败';
+        $success['infoCode']=0;
 }
 echo json_encode($success);
 ?>

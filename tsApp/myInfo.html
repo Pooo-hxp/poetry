@@ -25,7 +25,8 @@
                     <table class="table">
                         <tbody class="hxp-icon">
                             <tr>
-                                <td id="transform"> <img src="src/common/image/icon/头像.png" alt="">&#12288{{UserName}}</td>
+                                <td id="transform"> <img src="src/common/image/icon/头像.png" alt="">&#12288{{UserName}}
+                                </td>
                             </tr>
                             <tr>
                                 <td> <img src="src/common/image/icon/签名.png" alt="">&#12288{{UserSayHi}}</td>
@@ -74,8 +75,8 @@
                     <td><a href="">></a></td>
                 </tr>
                 <tr @click='setting'>
-                    <td >
-                        <a >
+                    <td>
+                        <a>
                             <img src="/src/common/image/icon/设置.png" alt="" srcset="">设置/登录
                         </a>
                     </td>
@@ -83,17 +84,21 @@
                     <td>></td>
                 </tr>
             </table>
-            注：<br>
-            账号名：账号名即用户标识，故不支持更改；<br>
-            性别：默认为GG，可选项为GG或MM；<br>
-            个性签名：请不要超过十五个字；<br>
-            更换头像图片:开发中....
+            <dl>
+                <dt>昵称：</dt>
+                <dd>- 昵称即用户标识，故不支持更改；</dd>
+                <dt>个性签名：</dt>
+                <dd>- 请不要超过十五个字；</dd>
+                <dt> 性别：</dt>
+                <dd>- 默认为GG，可选项为GG或MM；</dd>
+                <dt> 注：</dt>
+                <dd>更换头像图片:开发中....</dd>
         </div>
         <div class="login" v-if='table'>
             <div class="menu">
-            <button class="btn-success" @click='loginfun'>想登录/注册?</button>
-            <button class="btn-warning" @click='updatefun'>想修改个人信息？</button>
-            <p class="text-right" ><a @click='close'>关闭</a></p>
+                <button class="btn-success" @click='loginfun'>想登录/注册?</button>
+                <button class="btn-warning" @click='updatefun'>想修改个人信息？</button>
+                <p class="text-right"><a @click='close'>关闭</a></p>
             </div>
             <table class="table table-hover table-inverse " v-if='login'>
                 <tr>
@@ -102,38 +107,43 @@
                 </tr>
                 <tr>
                     <td>密码</td>
-                    <td><input type="password"  v-model='PassWord'></td>
+                    <td><input type="password" v-model='PassWord'></td>
                 </tr>
-                <th><button class="btn btn-info btn-sm">登录</button></th>
-                <th><button class="btn btn-danger btn-sm">注册</button></th>
+                <th></th>
+                <th><button class="btn btn-info btn-sm" @click='login_axios'>登录</button>
+                    <button class="btn btn-danger  btn-sm">注册</button></th>
+                <thead class="text-right"><mark>*不区分英文大小写</mark></thead>
             </table>
             <table class="table  table-inverse " v-if='updateInfo'>
-                    <tr >
-                        <td>当前账号名</td>
-                        <td ><input type="text" class="form-control" disabled="disabled":value='UserName'>
-                            <span class="text-warning">（*账号名不支持更改哟!）</span>
-                        </td>
-                    </tr>
-                    <tr >
-                        <td>个性签名</td>
-                        <td><input type="text"class="form-control">{{UserSayHi}}</td>
-                    </tr>
-                    <tr>
-                        <td>性别</td>
-                        <td>
-                            <select name="" id="" class="form-control">
-                                <option value="">GG</option>
-                                <option value="">MM</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>请验证密码</td>
-                        <td><input type="text"class="form-control"></td>
-                    </tr>
-                    <th><button class="btn btn-info btn-sm">确认修改？</button></th>
-                    <th><button class="btn btn-danger btn-sm"@click='close'>手滑辽</button></th>
-                </table>
+                <tr>
+                    <td>当前账号名</td>
+                    <td><input type="text" class="form-control" disabled="disabled" :value='UserName'>
+                        <span class="text-warning">（*账号名不支持更改哟!）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>个性签名</td>
+                    <td><input type="text" class="form-control" :value='UserSayHi'>
+                        <span class="text-warning">（*十五字以内哟~）</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>性别</td>
+                    <td>
+                        <select name="" id="" class="form-control">
+                            <option value="GG">GG</option>
+                            <option value="MM">MM</option>
+                            <option disabled="disabled">(性别不可搞错哟)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>请验证密码</td>
+                    <td><input type="text" class="form-control"></td>
+                </tr>
+                <th><button class="btn btn-info btn-sm">确认修改</button></th>
+                <th><button class="btn btn-danger btn-sm" @click='close'>不想改辽</button></th>
+            </table>
         </div>
     </div>
     <div class="maskingimg" id="maskingimg"></div>
@@ -180,6 +190,6 @@
 <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 <script src="src/common/js/axios/dist/axios.min.js"></script>
 <script src="src/common/js/hxp_function/myInfo.js"></script>
-<script src="src/common/js/hxp_function/chickme.js"></script>
+<script src="src/common/js/hxp_function/clickme.js"></script>
 
 </html>

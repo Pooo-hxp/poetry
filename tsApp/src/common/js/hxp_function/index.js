@@ -12,6 +12,7 @@ $(function () {
         },
         methods: {
             select_ts: function () {
+                 /**获取搜索栏信息，判定后，重新渲染组件 */
                 this.selectval_type=='宋词'?
                 (this.Songci_key=this.selectval,this.Tangshi_key = null)
                 :this.Tangshi_key = this.selectval;
@@ -21,24 +22,32 @@ $(function () {
 				this.$nextTick(() => {
 					this.reload= true;
 				})
+            },
+            Change_Tangshi_key:function(e){
+                /**点击热门诗人，重新渲染组件 */
+                const New_Tangshi_key=$(e.target).html();
+                this.Tangshi_key=New_Tangshi_key;
+                this.reload = false;
+				this.$nextTick(() => {
+					this.reload= true;
+				})
             }
         },
         components: {
-            /**本地JSON渲染出诗词列表 */
-            hxpstatic: {
+            hxppoetry: {
                 template: '#hxp-poetry',
                 data: function () {
                     return {
                         Tangshi_key: null,
                         Songci_key: null,
                         time: new Date(),
-                        getlist: null //存放获取的json数据
+                        getlist: null 
                     }
                 },
                 methods: {
                     del(index) {
                         this.getlist.splice(index, 1);
-                    }
+                    },
                 },
                 mounted() {
                     this.Tangshi_key==null?
