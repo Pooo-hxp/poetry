@@ -45,7 +45,28 @@
                             window.localStorage.setItem('PassWord', JSON.stringify(this.PassWord));
                             history.go(0)
                         })()
-                            : (res.data.infoCode == 2 ? alert('账号密码错误')
+                            : (res.data.infoCode == 2 ? alert('账号密码错误或不存在')
+                                : alert('数据库连接失败，请稍后再试或联系管理员'))
+                    })
+            },
+            createLogin_axios: function () {
+                var formdata = new FormData();
+                formdata.append('UserName', this.UserName);
+                formdata.append('PassWord', this.PassWord);
+                axios
+                    .post('https://www.xipengheng.cn/AAA/createLogin.php', formdata)
+                    .then(res => {
+                        /**验证注册用的账号和密码
+                           * 账号已存在返回1
+                           * 账号注册成功返回2
+                           * 数据库连接失败时返回0
+                           */
+                        res.data.infoCode == 1 ? (() => {
+                            console.log('当前账号已被注册');
+                            this.UserName='';
+                            alert('当前账号已被注册，请更换账号名')
+                        })()
+                            : (res.data.infoCode == 2 ? alert('注册成功，请登录')
                                 : alert('数据库连接失败，请稍后再试或联系管理员'))
                     })
             },
