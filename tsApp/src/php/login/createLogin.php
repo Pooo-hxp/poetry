@@ -11,14 +11,14 @@ if($con){
     mysqli_query($con,'set names utf8');
 	mysqli_query($con,'set character_set_client=utf8');
     mysqli_query($con,'set character_set_results=utf8');
-  $sql = "SELECT $UserName FROM `TangLogin`";
+  $sql = "SELECT * FROM `TangLogin` WHERE UserName='$UserName'";
   $result=$con->query($sql);	
 		if($result->num_rows>0){					
             $success['infoCode']=1;
-            /**注册用的账号名在数据库中能查到 */
 	}else{
-        $sql = "INSERT INTO `TangLogin`(`UserName`, `PassWord`) VALUES ($UserName,$PassWord)";
-			$success['infoCode']=2;
+        $sql = "INSERT INTO `TangLogin`(`UserName`, `PassWord`) VALUES ('$UserName','$PassWord')";
+         $success['infoCode']=2;
+        $con->query($sql);
     }
     }
 else{
