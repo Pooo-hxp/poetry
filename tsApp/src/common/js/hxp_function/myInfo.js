@@ -56,6 +56,7 @@
                 axios
                     .post('https://www.xipengheng.cn/AAA/createLogin.php', formdata)
                     .then(res => {
+                        console.log(res);
                         /**验证注册用的账号和密码
                            * 账号已存在返回1
                            * 账号注册成功返回2
