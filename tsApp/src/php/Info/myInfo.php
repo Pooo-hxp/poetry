@@ -8,7 +8,7 @@ $UserName=$_POST['UserName'];
 
 $con=mysqli_connect('localhost','login','hengxipeng123','login');
 if($con){
-    mysqli_query($con,'set names utf8');
+  mysqli_query($con,'set names utf8');
 	mysqli_query($con,'set character_set_client=utf8');
 	mysqli_query($con,'set character_set_results=utf8');
   $sql = "SELECT * FROM `TangUserData` WHERE UserName='$UserName'";
