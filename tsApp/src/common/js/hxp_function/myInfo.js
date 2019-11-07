@@ -21,10 +21,7 @@
             UserSayHi: null,
         },
         methods: {
-            loginfun: function () {
-                this.login = true;
-                this.updateInfo = false;
-            },
+            /**登录 */
             login_axios: function () {
                 var formdata = new FormData();
                 formdata.append('UserName', this.UserName);
@@ -48,6 +45,7 @@
                                 : alert('数据库连接失败，请稍后再试或联系管理员'))
                     })
             },
+            /**注册 */
             createLogin_axios: function () {
                 var formdata = new FormData();
                 formdata.append('UserName', this.UserName);
@@ -69,6 +67,24 @@
                             : (res.data.infoCode == 2 ? alert('注册成功，请登录')
                                 : alert('数据库连接失败，请稍后再试或联系管理员'))
                     })
+            },
+            /**修改个人信息 */
+            updateInfo_axios:function(){
+                var formdata=new FormData();
+                formdata.append('UserName', this.UserName);
+                formdata.append('PassWord', this.PassWord);
+                formdata.append('UserGender', this.UserGender);
+                formdata.append('UserSayHi', this.UserSayHi);
+                axios
+                .post('https://www.xipengheng.cn/AAA/updateInfo.php', formdata)
+                .then(res=>{
+                    console.log(res);
+                    this.table = false;
+                })
+            },
+            loginfun: function () {
+                this.login = true;
+                this.updateInfo = false;
             },
             updatefun: function () {
                 this.updateInfo = true;

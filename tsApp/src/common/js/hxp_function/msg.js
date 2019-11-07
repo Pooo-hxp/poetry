@@ -57,7 +57,7 @@
                         this._data.list[index].Like = like;
                         /** 静态改变当前点赞计数 */
                         axios
-                            .post('https://www.xipengheng.cn/AAA/updataMsg.php', newmsg)
+                            .post('https://www.xipengheng.cn/AAA/updateMsg.php', newmsg)
                             .then(res => {
                                 let flag = res.data.infoCode
                                 flag == 1 ? console.log('点赞计数写入数据库成功')
@@ -83,7 +83,7 @@
                         newmsg.append('sick', sick);
                         this._data.list[index].Sick = sick;
                         axios
-                            .post('https://www.xipengheng.cn/AAA/updataMsg.php', newmsg)
+                            .post('https://www.xipengheng.cn/AAA/updateMsg.php', newmsg)
                             .then(res => {
                                 let flag = res.data.infoCode
                                 flag == 2 ? console.log('踩踩计数写入数据库成功')
