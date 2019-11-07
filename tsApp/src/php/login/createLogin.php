@@ -17,8 +17,10 @@ if($con){
             $success['infoCode']=1;
 	}else{
         $sql = "INSERT INTO `TangLogin`(`UserName`, `PassWord`) VALUES ('$UserName','$PassWord')";
-         $success['infoCode']=2;
+        $sql2 = "INSERT INTO `TangUserData`(`UserName`,'UserGender','UserSayHi','UserPhotoUrl') VALUES ('$UserName','','','')";
+        $success['infoCode']=2;
         $con->query($sql);
+        $con->query($sql2);
     }
     }
 else{

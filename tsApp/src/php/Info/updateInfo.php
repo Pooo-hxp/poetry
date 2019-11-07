@@ -11,12 +11,12 @@ $UserGender=$_POST['UserGender'];
 
 $con=mysqli_connect('localhost','login','hengxipeng123','login');
 if($con){
-    mysqli_query($con,'set names utf8')
+    mysqli_query($con,'set names utf8');
     mysqli_query($con,'set character_set_client=utf8');
     mysqli_query($con,'set character_set_results=utf8');
-    $sql="UPDATE `TangUserData` SET `UserGender`=$UserGender,`UserSayHi`=$UserSayHi,`UserPhotoUrl`='' WHERE `UserName`=$UserName"
+    $sql="UPDATE `TangUserData` SET `UserGender`='$UserGender',`UserSayHi`='$UserSayHi' WHERE UserName='$UserName'";
     $result=$con->query($sql);
-    $success['infoCode']=1;
+    $success['infoCode']=$sql;
 }else{
     $success['infoCode']=0;
 }
