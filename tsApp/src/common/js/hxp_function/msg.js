@@ -1,7 +1,8 @@
 (function () {
     var vm = new Vue({
         el: '.app',
-        data: {},
+        data: {
+        },
         methods: {
             axios_post: () => { /**这是留言功能 */
                 var params = new FormData();
@@ -10,15 +11,16 @@
                 let M = dt.getMonth() + 1;
                 let D = dt.getDate();
                 let msg = document.getElementById("msg-textinfo").innerHTML;
-                params.append('UserName', 'xipengheng');
-                /**这里后续更改为当前登录账号名 */
+                const UserName = JSON.parse(localStorage.getItem('UserName'));
+                /**获取当前登录的用户名 */
+                params.append('UserName', UserName);
                 params.append('msg', msg);
                 params.append('msgTime', `${Y}.${M}.${D}`);
                 axios
                     .post('https://www.xipengheng.cn/AAA/insertMsg.php', params)
                     .then(res => {
                         console.log('留言数据写入正常');
-                        location.reload();/**重载 */
+                        location.reload();/**重载页面 */
                     })
             },
 
@@ -69,7 +71,7 @@
                          * 1、点赞/踩icon身上绑定不同函数
                          * 2、把当前点击评论的ID与点赞/踩计数传入函数
                          * 3、立即更改点赞/踩计数写入数据库且不刷新
-                         * ps:很僵硬，为了提升用户体验，点赞不能刷新页面
+                         * ps:很僵硬，为了提升用户体验，避免点赞屏闪
                          * 所以当前显示的计数为与数据库中相同的假数据
                          * 无伤大雅，下次进入时获取数据库数据更新
                          */
