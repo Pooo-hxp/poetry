@@ -123,14 +123,14 @@
                 </tr>
                 <tr>
                     <td>个性签名</td>
-                    <td><input type="text" class="form-control" :value='UserSayHi'>
+                    <td><input type="text" class="form-control" v-model='UserSayHi'>
                         <span class="text-warning">（*十五字以内哟~）</span>
                     </td>
                 </tr>
                 <tr>
                     <td>性别</td>
                     <td>
-                        <select name="" id="" class="form-control">
+                        <select name="" id="" class="form-control" v-model='UserGender'>
                             <option value="GG">GG</option>
                             <option value="MM">MM</option>
                             <option disabled="disabled">(性别不可搞错哟)</option>
@@ -138,10 +138,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>请验证密码</td>
-                    <td><input type="text" class="form-control"></td>
+                    <td>图片上传预留</td>
+                    <td><input type="text" class="form-control"disabled="disabled"></td>
                 </tr>
-                <th><button class="btn btn-info btn-sm">确认修改</button></th>
+                <th><button class="btn btn-info btn-sm" @click=updateInfo_axios>确认修改</button></th>
                 <th><button class="btn btn-danger btn-sm" @click='close'>不想改辽</button></th>
             </table>
         </div>
