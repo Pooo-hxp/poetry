@@ -6,3 +6,4 @@
 - 11月12日，阿西吧，有点难受，功能全实现了，但是想再次重构，觉得应该工程化开发。
 - 想了一下，还是决定更换技术栈为vue+vue-router+vuex+axios+bootstrap+php+mysql
 - 10月13 glk to me
+- 10月14 重构前已挂载到服务器。
