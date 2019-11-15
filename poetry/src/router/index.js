@@ -1,15 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
+//引入组件
+import index from '@/components/index'
+import msg from '@/components/msg'
+import myInfo from '@/components/myInfo'
+// import weather from '@/components/index/weather'
+
+//使用vueRouter
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'index',
+      component: index
+    },
+    {
+      path:'/msg',
+      name:'msg',
+      component:msg
+    },{
+      path:'/myInfo',
+      name:'myInfo',
+      component:myInfo
     }
   ]
 })
