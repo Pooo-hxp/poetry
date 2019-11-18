@@ -14,14 +14,17 @@
         </div>
       </div>
       <div class="container msg-filter">全部评论</div>
+       <msginfo></msginfo>
     </div>
+   
   </div>
 </template>
 <script>
-
+import msginfo from './msginfo'
 export default {
     name:'msgCompon',//把当前组件抛出并命名
     components:{
+      msginfo
     },
     data(){
         return{
@@ -31,4 +34,25 @@ export default {
 };
 </script>
 <style scoped>
+.header{
+    height: 20rem;
+}
+.msg-text{
+    height: 6rem;
+    border-bottom:1px solid rgba(148, 142, 148,0.3);
+}
+.msg-text div{
+    overflow: hidden;
+    height: 5rem;
+}
+.msg-btn,.msg-textinfo{
+    padding: 0.7rem;
+    /* 使文本内容和发表按钮居中，使其更美观 */
+}
+/* 留言过滤 */
+.msg-filter{
+    
+    height: 3rem;
+    border-bottom:1px solid rgba(148, 142, 148,0.3);
+}
 </style>
