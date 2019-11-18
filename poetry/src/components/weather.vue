@@ -27,7 +27,7 @@ export default {
     name:'weather', //把当前组件命名并暴露出去
     data(){
         return{
-
+          
         }
     }
 }
