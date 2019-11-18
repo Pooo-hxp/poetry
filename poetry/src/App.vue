@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import msgC from "./components/myInfo";
+// import msgC from "./components/myInfo";
 export default {
   name: "App",
   components: {
-    msgC
+    // msgC
   }
 };
 </script>
