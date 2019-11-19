@@ -57,7 +57,6 @@
                         newmsg.append('MsgID', id);
                         newmsg.append('like', like);
                         this._data.list[index].Like = like;
-                        /** 静态改变当前点赞计数 */
                         axios
                             .post('https://www.xipengheng.cn/AAA/updateMsg.php', newmsg)
                             .then(res => {

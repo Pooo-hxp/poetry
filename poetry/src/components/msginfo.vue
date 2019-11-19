@@ -52,7 +52,7 @@
                     let newmsg = new FormData();
                     newmsg.append('MsgID', id);
                     newmsg.append('like', like);
-                    this._data.list[index].Like = like; //有点迷，这里我给忘了赋值对象了，衡希鹏啊别忘了看
+                    this._data.list[index].Like = like;
                     this.$axios
                         .post('https://www.xipengheng.cn/AAA/updateMsg.php', newmsg)
                         .then(res => {
