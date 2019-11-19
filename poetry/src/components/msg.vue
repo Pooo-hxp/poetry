@@ -22,6 +22,7 @@
 <script>
 import msginfo from './msginfo'
 export default {
+  
     name:'msgCompon',//抛出当前组件并命名
     components:{
       msginfo
