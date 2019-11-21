@@ -5,7 +5,6 @@ import Router from 'vue-router'
 import index from '@/components/index'
 import msg from '@/components/msg'
 import myInfo from '@/components/myInfo'
-// import weather from '@/components/index/weather'
 
 //使用vueRouter
 Vue.use(Router)

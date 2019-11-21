@@ -35,8 +35,10 @@
 <script>
 export default {
     name:'loop',//组件命名并暴露出去
-    data(){
-
+    data:function(){
+        return{
+            
+        }
     }
 }
 </script>
