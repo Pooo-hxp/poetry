@@ -58,6 +58,7 @@ $(function () {
                         .get(url)
                         .then(res => {
                             this.getlist = res.data.newslist;
+                            console.log(this.getlist);
                             console.log('首次获取JSON数据渲染正常');
                         })
                 },
