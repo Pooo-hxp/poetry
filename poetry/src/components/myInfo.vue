@@ -12,14 +12,11 @@
                     <table class="table">
                         <tbody class="hxp-icon">
                             <tr>
-                                <!-- <td id="transform"> <img src="../assets/images/icon/头像.png" alt="">{{UserName}}
-                                </td> -->
-                                <td id="transform"> <img src="../assets/images/icon/头像.png" alt="">hengxipeng
+                                <td id="transform"> <img src="../assets/images/icon/头像.png" alt="">&#12288{{UserName}}
                                 </td>
                             </tr>
                             <tr>
-                                <!-- <td> <img src="../assets/images/icon/签名.png" alt="">{{UserSayHi}}</td> -->
-                                <td> <img src="../assets/images/icon/签名.png" alt="">我是一头牛</td>
+                                <td> <img src="../assets/images/icon/签名.png" alt="">{{UserSayHi}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -35,8 +32,7 @@
                             <img src="../assets/images/icon/番茄.png" alt="" srcset="">我的昵称
                         </a>
                     </td>
-                    <!-- <td>{{UserName}}</td> -->
-                    <td>hengxipeng</td>
+                    <td>{{UserName}}</td>
                     <td> <a href="">></a></td>
                 </tr>
                 <tr>
@@ -45,8 +41,7 @@
                             <img src="../assets/images/icon/喜欢.png" alt="" srcset="">个性签名
                         </a>
                     </td>
-                    <!-- <td> {{UserSayHi}}</td> -->
-                    <td> 我是一头牛</td>
+                    <td> {{UserSayHi}}</td>
                     <td><a href="">></a></td>
                 </tr>
                 <tr>
@@ -55,8 +50,7 @@
                             <img src="../assets/images/icon/性别.png" alt="" srcset="">性别
                         </a>
                     </td>
-                    <!-- <td>{{UserGender}}</td> -->
-                    <td>男</td>
+                    <td>{{UserGender}}</td>
                     <td><a href="">></a></td>
                 </tr>
                 <tr>
@@ -115,6 +109,7 @@
                        <thead ><mark>*不区分大小写</mark></thead>
             </table>
             <table class="table  table-inverse " v-if='updateInfo'>
+                <tbody>
                 <tr>
                     <td>当前账号名</td>
                     <td><input type="text" class="form-control" disabled="disabled" :value='UserName'>
@@ -138,11 +133,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>图片上传预留</td>
+                    <td>头像上传预留</td>
                     <td><input type="text" class="form-control" disabled="disabled"></td>
                 </tr>
                 <th><button class="btn btn-info btn-sm" @click=updateInfo_axios>确认修改</button></th>
                 <th><button class="btn btn-danger btn-sm" @click='close'>不想改辽</button></th>
+                </tbody>
             </table>
         </div>
         <div class="maskingimg" id="maskingimg"></div>
@@ -169,7 +165,7 @@ export default {
                 var formdata = new FormData();
                 formdata.append('UserName', this.UserName);
                 formdata.append('PassWord', this.PassWord);
-                axios
+                this.$axios
                     .post('https://www.xipengheng.cn/AAA/login.php', formdata)
                     .then(res => {
                         /**验证账号和密码
@@ -193,7 +189,7 @@ export default {
                 var formdata = new FormData();
                 formdata.append('UserName', this.UserName);
                 formdata.append('PassWord', this.PassWord);
-                axios
+                this.$axios
                     .post('https://www.xipengheng.cn/AAA/createLogin.php', formdata)
                     .then(res => {
                         console.log(res);
@@ -218,7 +214,7 @@ export default {
                 formdata.append('PassWord', this.PassWord);
                 formdata.append('UserGender', this.UserGender);
                 formdata.append('UserSayHi', this.UserSayHi);
-                axios
+               this.$axios
                 .post('https://www.xipengheng.cn/AAA/updateInfo.php', formdata)
                 .then(res=>{
                     console.log(res);
@@ -238,7 +234,24 @@ export default {
             },
             setting: function () {
                 this.table = true;
+            console.log();    
             }
+        },
+        mounted(){
+           this.UserName = JSON.parse(localStorage.getItem('UserName'));
+            var formdata=new FormData();
+            formdata.append('UserName',this.UserName);
+            this.$axios
+                .post('https://www.xipengheng.cn/AAA/myInfo.php', formdata)
+                .then(res => {
+                    this.UserName = res.data.message[0].UserName||'';
+                    this.UserGender = res.data.message[0].UserGender||'';
+                    this.UserSayHi = res.data.message[0].UserSayHi||'';
+                    /**
+                     * 若有信息显示信息，没有信息返回空
+                     * 防止当前用户资料为空是渲染null
+                     */
+                })
         }
     }
 </script>
