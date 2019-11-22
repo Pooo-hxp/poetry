@@ -1,22 +1,22 @@
 <template>
   <div class="hxp-weather">
     <div class="hxp-weather-header">
-      <!-- <img :src="weather_weatherimg" alt=""> -->
+      <img :src="weather_weatherimg" alt="">
       <!--暂定-->
-      <img src="../assets/images/icon/qing.png" alt />
+      <!-- <img src="../assets/images/icon/qing.png" alt /> -->
       <a id="jinrishici-sentence">今日诗词....</a>
     </div>
     <div class="hxp-weather-footer">
       <div class="text-center hxp-weather-footer-left">
-        <h2>17°C</h2>
-        <em>2019.11.22</em>
+        <h2>{{data.real}}</h2>
+        <em>{{data.date}}</em>
       </div>
       <div class="hxp-weather-footer-right">
         <ol>
-          <li>今天：星期三</li>
-          <li>天气：晴天</li>
-          <li>气温：14°C/22°C</li>
-          <li>空气质量：优</li>
+          <li>今天：{{data.week}}</li>
+          <li>天气：{{data.weather}}</li>
+          <li>气温：{{data.lowest}}/{{data.highest}}</li>
+          <li>空气质量：{{data.air_level}}</li>
         </ol>
       </div>
     </div>
@@ -27,9 +27,25 @@ export default {
     name:'weather', //把当前组件命名并暴露出去
     data:function(){
         return{
-          
+          header: "http://api.tianapi.com/txapi",
+          key: "?key=0c7ebab2461621aeb2c34b3a82e4c702",
+          weather_weatherimg: ('../assets/images/icon/'),/*天气图标*/
+          city :'city=郑州',
+          word :'tianqi',
+          data:null,
+          url: null,
         }
-    }
+    },
+        mounted() {
+          const url = `${this.header}/${this.word}/${this.key}&${this.city}`;
+          console.log(url);
+          this.$axios
+              .get(url)
+              .then(res => {
+                  this.data = res.data.newslist[0];
+                  this.weather_weatherimg += this.data.weatherimg;
+              })
+        },
 }
 </script>
 <style  scoped>
