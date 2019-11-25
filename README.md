@@ -7,3 +7,4 @@
 - 想了一下，还是决定更换技术栈为vue+vue-router+vue-cli+vuex+axios+bootstrap+php+mysql
 - 10月13 glk to me
 - 10月14 重构前已挂载到我的阿里云服务器，留存老版本。
+- 11月25日，所有功能代码重构完毕
