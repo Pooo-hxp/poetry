@@ -17,12 +17,12 @@
   </div>
 </template>
 <script>
-import tree from "./components/tree";
+// import tree from "./components/tree";
 
 export default {
   name: "App",
   components:{
-    tree
+    // tree
   }
 };
 </script>
