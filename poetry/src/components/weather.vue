@@ -42,7 +42,7 @@ export default {
           this.$axios
               .get(url)
               .then(res => {
-                  this.data = res.data.newslist[0];
+                  this.data = res.data.newslist[1];
                   this.weather_weatherimg += this.data.weatherimg;
               })
         },

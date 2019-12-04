@@ -1,5 +1,5 @@
 <template>
-  <div class="hi">
+  <div class="hi" v-if="show">
     <loop></loop>
     <!--轮播图组件 -->
     <poetryList></poetryList>
@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      msg: ""
+      show:true
     };
   }
 };
