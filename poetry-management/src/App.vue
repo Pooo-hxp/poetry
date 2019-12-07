@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <Index />
   </div>
 </template>
 
 <script>
+import Index from '@/components/Index'
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    Index
+  }
 }
 </script>
 
@@ -18,6 +21,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+*{
+  padding: 0;
+  margin: 0;
 }
 </style>

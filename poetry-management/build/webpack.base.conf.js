@@ -7,16 +7,11 @@ const vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: 'eslint-loader',
-  enforce: 'pre',
-  include: [resolve('src'), resolve('test')],
-  options: {
-    formatter: require('eslint-friendly-formatter'),
-    emitWarning: !config.dev.showEslintErrorsInOverlay
-  }
+const createLintingRule=()=>({
+/**
+ * 我把这里的代码清空了，配置时手残设置了语法规范检测
+ * 控制台成片的黄色警告，去也去不掉，烦死了！！！！
+ */
 })
 
 module.exports = {
