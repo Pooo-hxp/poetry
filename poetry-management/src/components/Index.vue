@@ -1,19 +1,18 @@
 <template>
   <div class="hello">
-    <el-container>
-      <el-aside width="250px">
-        <el-menu
-          default-active="2"
+    <el-container style="height:100%">
+      <el-aside style="width:251px">
+        <el-menu router
+          
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
-        >
+        ><!--default-active="1"   默认打开的目录序号 :default-openeds=[1]-->
           <el-submenu index="1">
             <template slot="title">
-              <!-- <i class="el-icon-s-custom"></i> -->
               <i class="el-icon-s-home"></i>
               <span>首页</span>
             </template>
@@ -30,27 +29,55 @@
               <el-menu-item index="1-4-1">选项1</el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="2">
+
+            <!-- 查询功能导航 -->
+          <el-submenu index="2">
+            <template slot="title">
             <i class="el-icon-menu"></i>
             <span slot="title">查询</span>
-          </el-menu-item>
-        <el-menu-item index="3" >  <!-- disabled 加禁用 -->
-            <i class="el-icon-document"></i>
-            <span slot="title">管理</span>
-          </el-menu-item>
+            </template>
+             <el-menu-item-group>
+              <template slot="title">分组查询</template>
+              <el-menu-item index="/First">注册用户查询</el-menu-item>
+              <el-menu-item index="/First/Poetry-list">热门诗词查询</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+
+            <!-- 应用管理导航 -->
+        <el-submenu index="3">
+            <template slot="title">
+            <i class="el-icon-menu"></i>
+            <span slot="title">应用</span>
+            </template>
+             <el-menu-item-group>
+              <template slot="title">我是管理</template>
+              <el-menu-item index="/Last">应用管理一</el-menu-item>
+              <el-menu-item index="1-2">应用管理二</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+            <!-- disabled 加禁用 -->
+
+            <!-- 信息功能 -->
           <el-menu-item index="4">
             <i class="el-icon-setting"></i>
             <span slot="title">信息</span>
           </el-menu-item>
-          <el-menu-item index="5">
+
+            <!-- 设置功能 -->
+          <el-menu-item index="5" >
             <i class="el-icon-setting"></i>
             <span slot="title">设置</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
       <el-container>
-        <el-header><h3>{{msg}}</h3></el-header>
-        <el-main>信息列表</el-main>
+        <el-header>
+          <h3>{{msg}}</h3>
+        </el-header>
+        <el-main>
+          <!-- 右侧内容,用于切换组件 -->
+          <router-view />
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -74,8 +101,10 @@ export default {
   }
 };
 </script>
-
 <style  scoped>
+.hello {
+  height: 100%;
+}
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
@@ -84,29 +113,25 @@ export default {
   line-height: 60px;
 }
 
+/**冲掉eleUI自带的边框线，解决上下不齐bug*/
+.el-menu {
+  border: none;
+}
+
 .el-aside {
-  background-color: red;
+  background-color: #545c64;
   color: #333;
   text-align: center;
 }
 
 .el-main {
   background-color: #e9eef3;
-  color: #333;
+  color: #53a8ff;
   text-align: center;
   line-height: 160px;
 }
 
 body > .el-container {
   margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
 }
 </style>
