@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import First from '@/components/First'
 import Last from '@/components/Last'
+import echarts2 from '@/components/Last/echarts2'
+
 import Poetrylist from '@/components/First/Poetry-list'
 /**
  * @ 代表src在config下的webpack.base.conf.js中的配置 '@': resolve('src')
@@ -37,6 +39,12 @@ export default new Router({
       path: '/Last',
       name: 'Last',
       component: Last,
+
+    },
+    {
+      path: '/Last/echarts2',
+      name: 'echarts2',
+      component: echarts2,
 
     },
 

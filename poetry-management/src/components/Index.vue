@@ -34,10 +34,9 @@
           <el-submenu index="2">
             <template slot="title">
             <i class="el-icon-menu"></i>
-            <span slot="title">查询</span>
+            <span slot="title">用户数据分析平台</span>
             </template>
              <el-menu-item-group>
-              <template slot="title">分组查询</template>
               <el-menu-item index="/First">注册用户查询</el-menu-item>
               <el-menu-item index="/First/Poetry-list">热门诗词查询</el-menu-item>
             </el-menu-item-group>
@@ -47,12 +46,11 @@
         <el-submenu index="3">
             <template slot="title">
             <i class="el-icon-menu"></i>
-            <span slot="title">应用</span>
+            <span slot="title">可视化数据分析平台</span>
             </template>
              <el-menu-item-group>
-              <template slot="title">我是管理</template>
-              <el-menu-item index="/Last">应用管理一</el-menu-item>
-              <el-menu-item index="1-2">应用管理二</el-menu-item>
+              <el-menu-item index="/Last">诗词浏览信息分析</el-menu-item>
+              <el-menu-item index="/Last/echarts2">用户年龄层分析</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
             <!-- disabled 加禁用 -->

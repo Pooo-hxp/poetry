@@ -14,6 +14,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
+/**引入echarts*/
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts;
+
 /*引入axios用作交互*/
 import axios from 'axios'
 Vue.prototype.$axios = axios
