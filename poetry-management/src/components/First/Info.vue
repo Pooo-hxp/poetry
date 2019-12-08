@@ -2,7 +2,7 @@
   <el-table
     :data="tableData"
     style="width: 100%"
-    max-height="800"
+    max-height="700"
     >
     <!-- 为Table 指定最大高度 -->
     <el-table-column

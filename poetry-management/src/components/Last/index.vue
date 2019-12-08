@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h4>不同类型诗词访问数据表</h4>
+    <h4>{{msg}}</h4>
     <div id="ech" style="width: 100%;height:400px;">222</div>
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      msg:'不同类型诗词访问数据表'
+    };
   },
   mounted() {
     this.init();
