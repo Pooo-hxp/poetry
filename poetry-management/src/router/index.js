@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import First from '@/components/First'
-import Last from '@/components/Last'
-import echarts2 from '@/components/Last/echarts2'
+import Userdata from '@/components/Userdata/info'
+import index from '@/components/Poetrydata'
+import Poetrylist from '@/components/Poetrydata/Poetry-list'
 
-import Poetrylist from '@/components/First/Poetry-list'
+import echarts2 from '@/components/Userdata/echarts2'
 /**
  * @ 代表src在config下的webpack.base.conf.js中的配置 '@': resolve('src')
  * 可自行更改
@@ -25,24 +25,24 @@ export default new Router({
       component: Home
     },
     {
-      path: '/First',
-      name: 'First',
-      component: First
+      path: '/Userdata/info',
+      name: 'Userdata',
+      component: Userdata
     },
     {
-      path: '/First/Poetry-list',
+      path: '/Poetrydata/Poetry-list',
       name: 'Poetrylist',
       component: Poetrylist,
 
     },
     {
-      path: '/Last',
-      name: 'Last',
-      component: Last,
+      path: '/Poetrydata',
+      name: 'index',
+      component: index,
 
     },
     {
-      path: '/Last/echarts2',
+      path: '/Userdata/echarts2',
       name: 'echarts2',
       component: echarts2,
 
