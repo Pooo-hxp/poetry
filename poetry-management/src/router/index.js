@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Userdata from '@/components/Userdata/info'
-import index from '@/components/Poetrydata'
-import Poetrylist from '@/components/Poetrydata/Poetry-list'
+import info from '@/components/Userdata/info'
+import PoetrydataView from '@/components/Poetrydata/view'
+import list from '@/components/Poetrydata/list'
 
-import echarts2 from '@/components/Userdata/echarts2'
+import UserdataView from '@/components/Userdata/view'
 /**
  * @ 代表src在config下的webpack.base.conf.js中的配置 '@': resolve('src')
  * 可自行更改
@@ -26,25 +26,25 @@ export default new Router({
     },
     {
       path: '/Userdata/info',
-      name: 'Userdata',
-      component: Userdata
+      name: 'info',
+      component: info
     },
     {
-      path: '/Poetrydata/Poetry-list',
-      name: 'Poetrylist',
-      component: Poetrylist,
+      path: '/Poetrydata/list',
+      name: 'list',
+      component: list,
 
     },
     {
-      path: '/Poetrydata',
-      name: 'index',
-      component: index,
+      path: '/Poetrydata/view',
+      name: 'PoetrydataView',
+      component: PoetrydataView,
 
     },
     {
-      path: '/Userdata/echarts2',
-      name: 'echarts2',
-      component: echarts2,
+      path: '/Userdata/view',
+      name: 'UserdataView',
+      component: UserdataView,
 
     },
 
