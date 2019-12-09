@@ -8,23 +8,24 @@
     <el-table-column
       prop="data"
       label="日期"
-      width="240"
+      width="140"
     >
-    {{data}}
+    {{time|filtertime}}
     </el-table-column>
     <el-table-column
       prop="title"
       label="作品名"
-      width="410">
+      width="210">
     </el-table-column>
     <el-table-column
-      prop="kind"
-      label="类型"
-      width="210">
+      prop="content"
+      label="内容"
+      >
     </el-table-column>
     <el-table-column
       prop="author"
        label="作者"
+       width="100"
       :formatter="formatter">
     </el-table-column>
     <el-table-column
@@ -37,7 +38,7 @@
       <template slot-scope="scope">
         <el-tag
           :type="scope.row.kind === '七言律诗' ? 'primary' : 'success'"
-          disable-transitions>{{scope.row.tag}}</el-tag>
+          disable-transitions>{{scope.row.kind}}</el-tag>
       </template>
     </el-table-column>
   </el-table>
@@ -53,10 +54,9 @@
       header: "http://api.tianapi.com/txapi",
       key: "?key=0c7ebab2461621aeb2c34b3a82e4c702",
       url: null,
-      Tangshi_key: "李商隐",
+      Tangshi_key: "杜甫",
       tableData: null,
-      data:'2019-12-31'
-            // currentRow: null
+      time:new Date()
     };
   },
   mounted() {
@@ -75,6 +75,15 @@
       filterTag(value, row) {
         return row.kind === value;
       },
+    },
+  filters: {
+    filtertime: time => {
+      let dt = new Date(time);
+      let Y = dt.getFullYear();
+      let M = dt.getMonth() + 1;
+      let D = dt.getDate();
+      return `${Y}-${M}-${D}`;
     }
+  }
   }
 </script>

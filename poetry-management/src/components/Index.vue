@@ -37,8 +37,8 @@
             <span slot="title">用户数据分析平台</span>
             </template>
              <el-menu-item-group>
-              <el-menu-item index="/Userdata/info">注册用户查询</el-menu-item>
-              <el-menu-item index="/Userdata/view">用户年龄层分析</el-menu-item>
+              <el-menu-item index="/Userdata/info">用户数据查询</el-menu-item>
+              <el-menu-item index="/Userdata/view">用户年龄分布</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 
@@ -50,7 +50,7 @@
             </template>
              <el-menu-item-group>
                 <el-menu-item index="/Poetrydata/list">热门诗词查询</el-menu-item>
-              <el-menu-item index="/Poetrydata/view">诗词浏览信息分析</el-menu-item>
+                <el-menu-item index="/Poetrydata/view">诗词浏览分布</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
             <!-- disabled 加禁用 -->
