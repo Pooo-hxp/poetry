@@ -1,8 +1,6 @@
 <template>
   <div>
     <template>
-  <el-button @click="resetDateFilter">清除日期过滤器</el-button>
-  <el-button @click="clearFilter">清除所有过滤器</el-button>
   <el-table
     ref="filterTable"
     :data="tableData"
@@ -10,60 +8,40 @@
     <el-table-column
       prop="data"
       label="日期"
-      width="180"
+      width="240"
     >
+    {{data}}
     </el-table-column>
     <el-table-column
       prop="title"
       label="作品名"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="author"
-      label="作者"
-      width="180">
+      width="410">
     </el-table-column>
     <el-table-column
       prop="kind"
       label="类型"
+      width="210">
+    </el-table-column>
+    <el-table-column
+      prop="author"
+       label="作者"
       :formatter="formatter">
     </el-table-column>
     <el-table-column
       prop="kind"
       label="标签"
       width="100"
-      :filters="[{ text: '家', value: '家' }, { text: '公司', value: '公司' }]"
+      :filters="[{ text: '七言律诗', value: '七言律诗' }, { text: '五言律诗', value: '五言律诗' }]"
       :filter-method="filterTag"
       filter-placement="bottom-end">
       <template slot-scope="scope">
         <el-tag
-          :type="scope.row.tag === '家' ? 'primary' : 'success'"
+          :type="scope.row.kind === '七言律诗' ? 'primary' : 'success'"
           disable-transitions>{{scope.row.tag}}</el-tag>
       </template>
     </el-table-column>
   </el-table>
 </template>
-    <!-- <el-table
-      ref="singleTable"
-      :data="tableData"
-      highlight-current-row
-      style="width: 100%;height:750px"
-    >
-      <el-table-column type="index" label="序列" width="100"></el-table-column>
-      <el-table-column property="title" label="作品名"></el-table-column>
-      <el-table-column property="date" label="更新日期" width="150"></el-table-column>
-      <el-table-column property="author" label="作者" width="150"></el-table-column>
-      <el-table-column property="kind" label="类型"></el-table-column>
-      <el-table-column fixed="right" label="操作" width="320">
-        <template slot-scope="scope">
-          <el-button
-            @click.native.prevent="deleteRow(scope.$index, tableData)"
-            type="text"
-            size="small"
-          >去除列表项</el-button>
-        </template>
-      </el-table-column>
-    </el-table> -->
   </div>
 </template>
 
@@ -77,6 +55,7 @@
       url: null,
       Tangshi_key: "李商隐",
       tableData: null,
+      data:'2019-12-31'
             // currentRow: null
     };
   },
@@ -90,17 +69,11 @@
     });
   },
     methods: {
-      resetDateFilter() {
-        this.$refs.filterTable.clearFilter('date');
-      },
-      clearFilter() {
-        this.$refs.filterTable.clearFilter();
-      },
       formatter(row, column) {
-        return row.address;
+        return row.author;
       },
       filterTag(value, row) {
-        return row.tag === value;
+        return row.kind === value;
       },
     }
   }
