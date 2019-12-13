@@ -187,8 +187,12 @@ export default {
         //     /**注册 */
             createLogin_axios: function () {
                 var formdata = new FormData();
+                let dt = new Date();
+                let createTime=`${dt.getFullYear()}-${dt.getMonth()+1}-${dt.getDate()}`;
                 formdata.append('UserName', this.UserName);
                 formdata.append('PassWord', this.PassWord);
+                formdata.append('createTime',createTime);
+             
                 this.$axios
                     .post('https://www.xipengheng.cn/AAA/createLogin.php', formdata)
                     .then(res => {
@@ -249,7 +253,7 @@ export default {
                     this.UserSayHi = res.data.message[0].UserSayHi||'';
                     /**
                      * 若有信息显示信息，没有信息返回空
-                     * 防止当前用户资料为空是渲染null
+                     * 防止当前用户资料为空时渲染null
                      */
                 })
         }
