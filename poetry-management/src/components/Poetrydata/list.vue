@@ -30,9 +30,14 @@
     </el-table-column>
     <el-table-column
       prop="kind"
-      label="标签"
+      label="标签" 
       width="100"
-      :filters="[{ text: '七言律诗', value: '七言律诗' }, { text: '五言律诗', value: '五言律诗' }]"
+      :filters="[
+      { text: '七言律诗', value: '七言律诗'},
+      { text: '五言律诗', value: '五言律诗' },
+      {text:'五言古诗',value:'五言古诗'},
+      {text:'七言古诗',value:'七言古诗'}
+      ]"
       :filter-method="filterTag"
       filter-placement="bottom-end">
       <template slot-scope="scope">
