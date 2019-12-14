@@ -18,7 +18,7 @@ Vue.use(ElementUI);
 import echarts from 'echarts'
 Vue.prototype.$echarts = echarts;
 
-/*引入axios用作交互*/
+/*引入axios 用作交互*/
 import axios from 'axios'
 Vue.prototype.$axios = axios
 
