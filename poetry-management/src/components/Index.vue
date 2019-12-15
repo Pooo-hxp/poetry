@@ -14,7 +14,7 @@
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-s-home"></i>
-              <span>首页</span>
+              <span>后台首页</span>
             </template>
             <el-menu-item-group>
               <template slot="title">分组一</template>
@@ -33,37 +33,45 @@
             <!-- 查询功能导航 -->
           <el-submenu index="2">
             <template slot="title">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-s-custom"></i>
             <span slot="title">用户数据分析平台</span>
             </template>
              <el-menu-item-group>
-              <el-menu-item index="/Userdata/info">用户数据查询</el-menu-item>
-              <el-menu-item index="/Userdata/view">用户年龄分布</el-menu-item>
+              <el-menu-item index="/Userdata/info">
+              <i class="el-icon-search"></i>用户数据查询
+              </el-menu-item>
+              <el-menu-item index="/Userdata/view">
+              <i class="el-icon-s-data"></i>用户年龄分布
+              </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 
             <!-- 应用管理导航 -->
         <el-submenu index="3">
             <template slot="title">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-s-grid"></i>
             <span slot="title">诗词数据分析平台</span>
             </template>
              <el-menu-item-group>
-                <el-menu-item index="/Poetrydata/list">热门诗词查询</el-menu-item>
-                <el-menu-item index="/Poetrydata/view">诗词浏览分布</el-menu-item>
+                <el-menu-item index="/Poetrydata/list">
+                <i class="el-icon-search"></i>热门诗词查询
+                </el-menu-item>
+                <el-menu-item index="/Poetrydata/view">
+                <i class="el-icon-s-data"></i>诗词浏览分布
+                </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
             <!-- disabled 加禁用 -->
             <!-- 信息功能 -->
           <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">信息</span>
+            <i class="el-icon-loading"></i>
+            <span slot="title">当前登录账号信息</span>
           </el-menu-item>
 
             <!-- 设置功能 -->
           <el-menu-item index="5" >
             <i class="el-icon-setting"></i>
-            <span slot="title">设置</span>
+            <span slot="title">后台账号设置</span>
           </el-menu-item>
         </el-menu>
       </el-aside>

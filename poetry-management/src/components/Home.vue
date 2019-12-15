@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>我是首页组件</h3>
+    <h3>{{msg}}</h3>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to poetry-management'
     }
   }
 }

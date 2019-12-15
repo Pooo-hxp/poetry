@@ -47,6 +47,15 @@
       </template>
     </el-table-column>
   </el-table>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="cur_page"
+      :page-sizes="[5, 7, 10]"
+      :page-size="pageNum"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="totalCount">
+    </el-pagination>
 </template>
   </div>
 </template>
@@ -59,9 +68,13 @@
       header: "http://api.tianapi.com/txapi",
       key: "?key=0c7ebab2461621aeb2c34b3a82e4c702",
       url: null,
-      Tangshi_key: "杜甫",
+      Tangshi_key: "李白",
       tableData: null,
-      time:new Date()
+      time:new Date(),
+      /**分页效果 */
+      cur_page:1,//默认在第一页
+      pageNum:5,//默认每页显示1条数据
+      totalCount:10,//默认总条数为一条
     };
   },
   mounted() {
@@ -80,6 +93,20 @@
       filterTag(value, row) {
         return row.kind === value;
       },
+      handleSizeChange(val) {
+        //操作每页显示几条
+        this.pageNum=val;
+        //  this.getPackData();//根据用户获取的每页显示页面数量显示页面
+        console.log(`当前显示每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        //操作当前页
+        this.cur_page=val;
+        // this.getPackData();//获取用户点击的当前页后刷新页面数据
+        console.log(`当前在第 ${val}页`);
+      }
+
+
     },
   filters: {
     filtertime: time => {

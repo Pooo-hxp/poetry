@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>{{msg}}</h4>
-    <div id="ech" style="width: 100%;height:400px;">222</div>
+    <div id="ech" style="width: 100%;height:400px;"></div>
   </div>
 </template>
 <script>
