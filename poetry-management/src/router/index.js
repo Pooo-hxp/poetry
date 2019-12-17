@@ -4,8 +4,8 @@ import Home from '@/components/Home'
 import info from '@/components/Userdata/info'
 import PoetrydataView from '@/components/Poetrydata/view'
 import list from '@/components/Poetrydata/list'
-
 import UserdataView from '@/components/Userdata/view'
+import Setting from '@/components/Setting'
 /**
  * @ 代表src在config下的webpack.base.conf.js中的配置 '@': resolve('src')
  * 可自行更改
@@ -47,7 +47,11 @@ export default new Router({
       component: UserdataView,
 
     },
-
+    {
+      path: '/Setting',
+      name: 'Setting',
+      component: Setting,
+    },
 
   ]
 })

@@ -69,7 +69,7 @@
           </el-menu-item>
 
             <!-- 设置功能 -->
-          <el-menu-item index="5" >
+          <el-menu-item index="/Setting" >
             <i class="el-icon-setting"></i>
             <span slot="title">后台账号设置</span>
           </el-menu-item>

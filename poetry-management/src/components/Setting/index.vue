@@ -5,7 +5,11 @@
 </template>
 <script>
 export default {
-    
+    data(){
+        return{
+            msg:'这是设置组件'
+        }
+    }
 }
 </script>
 <style  scoped>
