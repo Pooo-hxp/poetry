@@ -67,7 +67,6 @@
             <i class="el-icon-loading"></i>
             <span slot="title">当前登录账号信息</span>
           </el-menu-item>
-
             <!-- 设置功能 -->
           <el-menu-item index="/Setting" >
             <i class="el-icon-setting"></i>
@@ -77,7 +76,7 @@
       </el-aside>
       <el-container>
         <el-header>
-          <h3>{{msg}}</h3>
+          <h2>{{msg}}</h2>
         </el-header>
         <el-main>
           <!-- 右侧内容,用于切换组件 -->
@@ -133,7 +132,6 @@ export default {
   background-color: #e9eef3;
   color: #53a8ff;
   text-align: center;
-  line-height: 160px;
 }
 
 body > .el-container {
