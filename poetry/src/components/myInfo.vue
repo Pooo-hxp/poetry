@@ -181,7 +181,7 @@
     </div>
     <div class="login" v-if="table2">
       <div class="menu">
-        <button class="btn-warning" @click="updatefun">感谢您参与我们的调查问卷</button>
+        <button class="btn-warning" >十分感谢您接受我的调查问卷</button>
         <p class="text-right">
           <a @click="close">关闭</a>
         </p>
@@ -191,7 +191,7 @@
           <tr>
             <td class="text-success">您的姓名</td>
             <td>
-              <input type="text" class="form-control" v-model="UserSayHi" />
+              <input type="text" class="form-control" disabled="disabled" v-model="UserName" />
             </td>
           </tr>
           <tr>
@@ -229,11 +229,11 @@
               <input type="text" class="form-control" value="暂不接受，请留言区指出" disabled="disabled" />
             </td>
           </tr>
-          <th>
-            <button class="btn btn-info btn-sm">确认提交</button>
-          </th>
         </tbody>
       </table>
+      <div class="text-center">
+        <button class="btn btn-info btn-sm">确认提交</button>
+      </div>
     </div>
     <div class="maskingimg" id="maskingimg"></div>
     <div class="maskingcolor"></div>
