@@ -181,7 +181,7 @@
     </div>
     <div class="login" v-if="table2">
       <div class="menu">
-        <button class="btn-warning" >十分感谢您接受我的调查问卷</button>
+        <button class="btn-warning">十分感谢您接受我的调查问卷</button>
         <p class="text-right">
           <a @click="close">关闭</a>
         </p>
@@ -189,15 +189,20 @@
       <table class="table table-inverse">
         <tbody>
           <tr>
-            <td class="text-success">您的姓名</td>
+            <td class="text-success">姓名</td>
             <td>
-              <input type="text" class="form-control" disabled="disabled" v-model="UserName" />
+              <input
+                type="text"
+                class="form-control"
+                disabled="disabled"
+                v-model="UserName"
+              />
             </td>
           </tr>
           <tr>
             <td>性别</td>
             <td>
-              <select name id class="form-control" v-model="UserGender">
+              <select name id class="form-control" v-model="question_UserGender">
                 <option value="GG">GG</option>
                 <option value="MM">MM</option>
               </select>
@@ -206,7 +211,7 @@
           <tr>
             <td>年龄所属</td>
             <td>
-              <select name id class="form-control" v-model="UserGender">
+              <select name id class="form-control" v-model="question_Age">
                 <option value="00后" selected>00后</option>
                 <option value="90后">90后</option>
                 <option value="80后">80后</option>
@@ -217,7 +222,7 @@
           <tr>
             <td>爱好类型</td>
             <td>
-              <select name id class="form-control" v-model="UserGender">
+              <select name id class="form-control" v-model="question_LikeType">
                 <option value="唐诗" selected>唐诗</option>
                 <option value="宋词">宋词</option>
               </select>
@@ -232,7 +237,7 @@
         </tbody>
       </table>
       <div class="text-center">
-        <button class="btn btn-info btn-sm">确认提交</button>
+        <button class="btn btn-info btn-sm" @click="questionTable_axios">确认提交</button>
       </div>
     </div>
     <div class="maskingimg" id="maskingimg"></div>
@@ -245,19 +250,22 @@ export default {
   data() {
     return {
       table: false /*弹窗是否显示*/,
-      table2: false,
-      updateInfo: false /*修改个人信息*/,
+      updateInfo: false /*个人信息修改*/,
       login: true /*注册、登录*/,
       UserName: null,
       PassWord: null,
       UserGender: null,
-      UserSayHi: null
+      UserSayHi: null,
+      table2: false /**调查问卷table */,
+      question_UserGender: null,
+      question_Age: null,
+      question_LikeType: null
     };
   },
   methods: {
     /**登录 */
     login_axios: function() {
-      var formdata = new FormData();
+      let formdata = new FormData();
       formdata.append("UserName", this.UserName);
       formdata.append("PassWord", this.PassWord);
       this.$axios
@@ -287,9 +295,9 @@ export default {
             : alert("数据库连接失败，请稍后再试或联系管理员");
         });
     },
-    //     /**注册 */
+    /**注册 */
     createLogin_axios: function() {
-      var formdata = new FormData();
+      let formdata = new FormData();
       let dt = new Date();
       let createTime = `${dt.getFullYear()}-${dt.getMonth() +
         1}-${dt.getDate()}`;
@@ -319,7 +327,7 @@ export default {
     },
     /**修改个人信息 */
     updateInfo_axios: function() {
-      var formdata = new FormData();
+      let formdata = new FormData();
       formdata.append("UserName", this.UserName);
       formdata.append("PassWord", this.PassWord);
       formdata.append("UserGender", this.UserGender);
@@ -330,6 +338,20 @@ export default {
           console.log(res);
           this.table = false;
         });
+    },
+    questionTable_axios: function() {
+      let formdata = new FormData();
+      formdata.append("UserName", this.UserName);
+      formdata.append("UserGender", this.question_UserGender);
+      formdata.append("Age", this.question_Age);
+      formdata.append("LikeType", this.question_LikeType);
+      console.log(formdata);
+      this.$axios
+      .post("https://www.xipengheng.cn/AAA/insertQuestionTable.php",formdata)
+      .then(res=>{
+        console.log('问卷数据插入数据库成功');
+        res.data.infoCode==1?this.table2=false:alert('数据库链接异常')
+      })
     },
     loginfun: function() {
       this.login = true;
