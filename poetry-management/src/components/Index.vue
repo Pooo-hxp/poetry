@@ -18,7 +18,7 @@
             </template>
             <el-menu-item-group>
               <template slot="title">分组一</template>
-              <el-menu-item index="1-1">我是导航1</el-menu-item>
+              <el-menu-item index="/Draggable">我是导航1</el-menu-item>
               <el-menu-item index="1-2">我是导航2</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group title="注册的账号信息">
