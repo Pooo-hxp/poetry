@@ -1,26 +1,14 @@
 <template>
   <div>
-    <table>
-      <draggable v-model="tablelist1" element="tbody" :move="getdata" @update="datadragEnd">
-       <th width="160">{{tablelist1[0].title1}}</th>
-      <th width="160">{{tablelist1[1].title2}}</th>
-      <th width="160">{{tablelist1[2].title3}}</th>
-      </draggable>
-    </table>
-    <br><br><br>
     <!--main-->
-    <table class="dataTabble">
-      <draggable v-model="tablelist1" element="tbody" :move="getdata" @update="datadragEnd">
-      <th width="160">{{tablelist1[0].title1}}</th>
-      <th width="160">{{tablelist1[1].title2}}</th>
-      <th width="160">{{tablelist1[2].title3}}</th>
+    <table >
+      <draggable  :move="getdata" @update="datadragEnd">
       <tr v-for="(item,id) in tablelist2" :key="id">
         <td>{{item.name}}</td>
         <td>{{item.time}}</td>
         <td>{{item.num}}</td>
       </tr>
       </draggable>
-
     </table>
     <div class="zhu mt40">提示：拖动可对栏目进行排序</div>
     <!--main end-->
