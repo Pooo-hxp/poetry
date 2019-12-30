@@ -10,7 +10,7 @@
       </tr>
       </draggable>
     </table>
-    <div class="zhu mt40">提示：拖动可对栏目进行排序</div>
+    <div>提示：拖动可对栏目进行排序</div>
     <!--main end-->
   </div>
 </template>
