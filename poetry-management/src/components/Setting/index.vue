@@ -10,9 +10,12 @@
 export default {
   data() {
     return {
-      activeName: "second"
+      activeName: "second",
+      flag:'index'
     };
-  }
+  },
+  methods: {},
+  mounted: {}
 };
 </script>
 <style  scoped>
