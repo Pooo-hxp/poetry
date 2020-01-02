@@ -86,6 +86,7 @@ export default {
       console.log(`当前在第 ${val}页`);
     }
   },
+  /*时间按规范格式输出*/
   filters: {
     filtertime: time => {
       let dt = new Date(time);

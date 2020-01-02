@@ -92,7 +92,7 @@ export default {
   name: "Index",
   data() {
     return {
-      msg: "XX系统后台管理系统"
+      msg: "Poetry系统后台管理系统"
     };
   },
   methods: {
