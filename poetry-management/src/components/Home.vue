@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>{{msg}}</h3>
+    <h3 @click="test()">{{msg}}</h3>
   </div>
 </template>
 
@@ -11,7 +11,14 @@ export default {
     return {
       msg: 'Poetry-management'
     }
-  }
+  },
+  methods:{
+    test:function(){
+      console.log(this);
+    }
+  },
+  mounted() {
+  },
 }
 </script>
 
