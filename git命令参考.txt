@@ -9,7 +9,7 @@ SSH我已经配置好了，后续无须再动
         2） $ git commit -m '变动内容标注'
         3)  $ git push 
 git 一次 add 多个文件的方法
-         $ git add file_1 file_2 file_3
+         $ git add file_1 file_2 
 git 提交全部文件
           $ git add .
 如添加文件夹直接添加就可以，不需加后缀（文件夹内必须有文件，空文件会失败）
