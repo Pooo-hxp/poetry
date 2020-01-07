@@ -26,7 +26,9 @@
             >{{scope.row.kind}}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="自定义" width="70"></el-table-column>
+        <el-table-column label="自定义" width="70">
+    
+        </el-table-column>
       </el-table>
 
       <el-pagination
@@ -39,16 +41,19 @@
         :total="totalCount"
       ></el-pagination>
     </template>
-    <dragg-view></dragg-view>
+          <el-popover placement="bottom" width="400" trigger="click">
+            <dragg-view></dragg-view>
+            <el-button slot="reference">click 激活</el-button>
+          </el-popover>
   </div>
 </template>
 <script>
 /**引入可拖动列表组件 */
-import Draggablelist from './Draggablelist';
+import Draggablelist from "./Draggablelist";
 export default {
   name: "Poetrylist",
-  components:{
-    "dragg-view":'Draggablelist'
+  components: {
+    "dragg-view": Draggablelist
   },
   data() {
     return {
@@ -61,25 +66,25 @@ export default {
       /**分页效果 */
       cur_page: 1, //默认在第一页
       pageNum: 5, //默认每页显示1条数据
-      totalCount: 10, //默认总条数为一条
-      setting: {
-        title: "设置",
-        align: "center",
-        width: "50px",
-        rederHeader: (h, params) => {
-          return h("i", {
-            props: {
-              class: "el-icon-setting",
-              size: "15"
-            },
-            on:{
-              click:()=>{
-                alert('点到我啦')
-              }
-            }
-          });
-        }
-      }
+      totalCount: 10 //默认总条数为一条
+      // setting: {
+      //   title: "设置",
+      //   align: "center",
+      //   width: "50px",
+      //   rederHeader: (h, params) => {
+      //     return h("i", {
+      //       props: {
+      //         class: "el-icon-setting",
+      //         size: "15"
+      //       },
+      //       on:{
+      //         click:()=>{
+      //           alert('点到我啦')
+      //         }
+      //       }
+      //     });
+      //   }
+      // }
     };
   },
   mounted() {
