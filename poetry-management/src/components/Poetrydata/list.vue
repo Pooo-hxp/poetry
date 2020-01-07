@@ -26,7 +26,9 @@
             >{{scope.row.kind}}</el-tag>
           </template>
         </el-table-column>
+        <el-table-column label="自定义" width="70"></el-table-column>
       </el-table>
+
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -37,14 +39,17 @@
         :total="totalCount"
       ></el-pagination>
     </template>
+    <dragg-view></dragg-view>
   </div>
 </template>
-  </div>
-</template>
-
 <script>
+/**引入可拖动列表组件 */
+import Draggablelist from './Draggablelist';
 export default {
   name: "Poetrylist",
+  components:{
+    "dragg-view":'Draggablelist'
+  },
   data() {
     return {
       header: "http://api.tianapi.com/txapi",
@@ -56,7 +61,25 @@ export default {
       /**分页效果 */
       cur_page: 1, //默认在第一页
       pageNum: 5, //默认每页显示1条数据
-      totalCount: 10 //默认总条数为一条
+      totalCount: 10, //默认总条数为一条
+      setting: {
+        title: "设置",
+        align: "center",
+        width: "50px",
+        rederHeader: (h, params) => {
+          return h("i", {
+            props: {
+              class: "el-icon-setting",
+              size: "15"
+            },
+            on:{
+              click:()=>{
+                alert('点到我啦')
+              }
+            }
+          });
+        }
+      }
     };
   },
   mounted() {
