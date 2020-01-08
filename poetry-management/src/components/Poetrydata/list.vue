@@ -26,11 +26,8 @@
             >{{scope.row.kind}}</el-tag>
           </template>
         </el-table-column>
+        <!-- 在此进行表头组件设置 -->
         <el-table-column :render-header="renderHeader" style="width:40px;position:'absolute'">
-          <!-- <el-popover placement="bottom" width="400" trigger="click">
-          <dragg-view></dragg-view>
-          <el-button slot="reference">click 激活</el-button>
-          </el-popover>-->
         </el-table-column>
       </el-table>
       <el-pagination
@@ -95,10 +92,11 @@ export default {
       // this.getPackData();//获取用户点击的当前页后刷新页面数据
       console.log(`当前在第 ${val}页`);
     },
-// iView 的 Table 组件, 功能十分强大. 
-// 但是想要在里面渲染一些操作使用的按钮, 需要用到render 函数, 像这样:
-// 如果想要在列表里面渲染一些iview自带的组件,
-//  比如Poptip, 直接render 是不行的, 需要把这个Poptip 封装成一个组件
+/**
+ * eleUI 的 Table 组件, 功能十分强大
+ * 但是想要在里面渲染一些操作使用的按钮, 需要用到render 函数, 
+ * 比如Poptip, 直接render 是不行的, 需要把这个Poptip 封装成一个组件
+ */
     renderHeader() {
       return (
      <draggView></draggView>
