@@ -26,18 +26,13 @@
             >{{scope.row.kind}}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column :render-header="renderHeader" width="80">
-               <!-- <el-popover placement="bottom" width="400" trigger="click">
-          <dragg-view></dragg-view>
-          <el-button slot="reference">click 激活</el-button>
-        </el-popover> -->
-        </el-table-column>
-
-      </el-table>
+        <el-table-column :render-header="renderHeader" style="width:40px;position:'absolute'">
           <!-- <el-popover placement="bottom" width="400" trigger="click">
           <dragg-view></dragg-view>
           <el-button slot="reference">click 激活</el-button>
-        </el-popover> -->
+          </el-popover>-->
+        </el-table-column>
+      </el-table>
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -48,6 +43,7 @@
         :total="totalCount"
       ></el-pagination>
     </template>
+    <draggView></draggView>
   </div>
 </template>
 <script>
@@ -56,7 +52,7 @@ import Draggablelist from "./Draggablelist";
 export default {
   name: "Poetrylist",
   components: {
-    "dragg-view": Draggablelist
+    draggView: Draggablelist
   },
   data() {
     return {
@@ -69,26 +65,8 @@ export default {
       /**分页效果 */
       cur_page: 1, //默认在第一页
       pageNum: 5, //默认每页显示1条数据
-      totalCount: 10,//默认总条数为一条
-      slot:''
-      // setting: {
-      //   title: "设置",
-      //   align: "center",
-      //   width: "50px",
-      //   rederHeader: (h, params) => {
-      //     return h("i", {
-      //       props: {
-      //         class: "el-icon-setting",
-      //         size: "15"
-      //       },
-      //       on:{
-      //         click:()=>{
-      //           alert('点到我啦')
-      //         }
-      //       }
-      //     });
-      //   }
-      // }
+      totalCount: 10, //默认总条数为一条
+      slot: ""
     };
   },
   mounted() {
@@ -117,17 +95,14 @@ export default {
       // this.getPackData();//获取用户点击的当前页后刷新页面数据
       console.log(`当前在第 ${val}页`);
     },
-    renderHeader(h) {
-      return(
-        <el-popover placement="bottom" width="40px" trigger="click">
-        <el-table>
-          <dragg-view></dragg-view>
-        </el-table>
-          <el-button slot="reference"> 
-          <i class="el-icon-setting"> </i>
-          </el-button>
-        </el-popover>
-      )
+// iView 的 Table 组件, 功能十分强大. 
+// 但是想要在里面渲染一些操作使用的按钮, 需要用到render 函数, 像这样:
+// 如果想要在列表里面渲染一些iview自带的组件,
+//  比如Poptip, 直接render 是不行的, 需要把这个Poptip 封装成一个组件
+    renderHeader() {
+      return (
+     <draggView></draggView>
+      );
     }
   },
   /*时间按规范格式输出*/
@@ -142,3 +117,13 @@ export default {
   }
 };
 </script>
+<style scope>
+/* #son {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+  top: 20px;
+  right: 50px;
+  background: #000;
+} */
+</style>
