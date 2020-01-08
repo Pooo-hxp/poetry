@@ -1,5 +1,5 @@
 <template>
-  <el-popover placement="bottom" width="200" trigger="click" title="表头设置">
+  <el-popover placement="bottom-end" width="200" trigger="click" title="表头设置">
     <draggable>
       <tr v-for="(item,id) in tablelist" :key="id">
         <td width="50">

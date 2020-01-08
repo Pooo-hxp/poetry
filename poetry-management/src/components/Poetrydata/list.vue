@@ -27,7 +27,7 @@
           </template>
         </el-table-column>
         <!-- 在此进行表头组件设置 -->
-        <el-table-column :render-header="renderHeader" style="width:40px;position:'absolute'">
+        <el-table-column :render-header="renderHeader" width="120">
         </el-table-column>
       </el-table>
       <el-pagination
