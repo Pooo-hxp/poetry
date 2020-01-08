@@ -12,7 +12,6 @@ import Draggable from '@/components/Draggable'
  * 可自行设置
  */
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {

@@ -26,11 +26,18 @@
             >{{scope.row.kind}}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="自定义" width="70">
-    
+        <el-table-column :render-header="renderHeader" width="80">
+               <!-- <el-popover placement="bottom" width="400" trigger="click">
+          <dragg-view></dragg-view>
+          <el-button slot="reference">click 激活</el-button>
+        </el-popover> -->
         </el-table-column>
-      </el-table>
 
+      </el-table>
+          <!-- <el-popover placement="bottom" width="400" trigger="click">
+          <dragg-view></dragg-view>
+          <el-button slot="reference">click 激活</el-button>
+        </el-popover> -->
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -41,10 +48,6 @@
         :total="totalCount"
       ></el-pagination>
     </template>
-          <el-popover placement="bottom" width="400" trigger="click">
-            <dragg-view></dragg-view>
-            <el-button slot="reference">click 激活</el-button>
-          </el-popover>
   </div>
 </template>
 <script>
@@ -66,7 +69,8 @@ export default {
       /**分页效果 */
       cur_page: 1, //默认在第一页
       pageNum: 5, //默认每页显示1条数据
-      totalCount: 10 //默认总条数为一条
+      totalCount: 10,//默认总条数为一条
+      slot:''
       // setting: {
       //   title: "设置",
       //   align: "center",
@@ -112,6 +116,18 @@ export default {
       this.cur_page = val;
       // this.getPackData();//获取用户点击的当前页后刷新页面数据
       console.log(`当前在第 ${val}页`);
+    },
+    renderHeader(h) {
+      return(
+        <el-popover placement="bottom" width="40px" trigger="click">
+        <el-table>
+          <dragg-view></dragg-view>
+        </el-table>
+          <el-button slot="reference"> 
+          <i class="el-icon-setting"> </i>
+          </el-button>
+        </el-popover>
+      )
     }
   },
   /*时间按规范格式输出*/
