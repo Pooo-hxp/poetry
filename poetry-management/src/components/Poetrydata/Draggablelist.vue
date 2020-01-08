@@ -1,14 +1,21 @@
 <template>
-    <el-popover placement="bottom" width="200" trigger="click" title="表头设置" >
-      <draggable>
-        <tr v-for="(item,id) in tablelist" :key="id">
-          <td width="50"><i class="el-icon-s-operation"></i></td>
-          <td width="80">{{item|cover}}</td>
-          <td width="60"><i class="el-icon-check"></i></td>
-        </tr>
-      </draggable>
-      <el-button slot="reference">设置<i class="el-icon-setting"></i></el-button>
-    </el-popover>
+  <el-popover placement="bottom" width="200" trigger="click" title="表头设置">
+    <draggable>
+      <tr v-for="(item,id) in tablelist" :key="id">
+        <td width="50">
+          <i class="el-icon-s-operation"></i>
+        </td>
+        <td width="80">{{item|cover}}</td>
+        <td width="60">
+          <i class="el-icon-check"></i>
+        </td>
+      </tr>
+    </draggable>
+    <el-button slot="reference">
+      设置
+      <i class="el-icon-setting"></i>
+    </el-button>
+  </el-popover>
 </template>
 <script>
 import draggable from "vuedraggable";
