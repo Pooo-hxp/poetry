@@ -5,7 +5,7 @@
         <td width="50">
           <i class="el-icon-s-operation"></i>
         </td>
-        <td width="80">{{item|cover}}</td>
+        <td width="80">{{item|conver}}</td>
         <td width="60">
           <i class="el-icon-check"></i>
         </td>
@@ -35,7 +35,7 @@ export default {
     };
   },
   filters: {
-    cover: name => {
+    conver: name => {
       if (name == "data") {
         return "日期";
       }
