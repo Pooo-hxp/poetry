@@ -13,7 +13,7 @@
               <tr>
                 <td id="transform">
                   <img src="../assets/images/icon/头像.png" alt />
-                  &#12288{{UserName}}
+                  {{UserName}}
                 </td>
               </tr>
               <tr>

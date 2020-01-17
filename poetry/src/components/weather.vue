@@ -3,7 +3,7 @@
     <div class="hxp-weather-header">
       <img :src="weather_weatherimg" alt="">
       <!--暂定-->
-      <!-- <img src="../assets/images/icon/qing.png" alt /> -->
+      <img src="../assets/images/icon/qing.png" alt />
       <a id="jinrishici-sentence">今日诗词....</a>
     </div>
     <div class="hxp-weather-footer">
@@ -32,8 +32,8 @@ export default {
           weather_weatherimg: ('../assets/images/icon/'),/*天气图标*/
           city :'city=郑州',
           word :'tianqi',
-          data:null,
-          url: null,
+          data:'',
+          url: '',
         }
     },
         mounted() {
