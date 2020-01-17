@@ -231,7 +231,7 @@
           <tr>
             <td>宝贵意见</td>
             <td>
-              <input type="text" class="form-control" value="暂不接受，请留言区指出" disabled="disabled" />
+              <input type="text" class="form-control" value="暂不接受" disabled="disabled" />
             </td>
           </tr>
         </tbody>

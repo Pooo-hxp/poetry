@@ -39,7 +39,7 @@
           </tr>
         </thead>
         <tbody class="hxp-icon">
-          <tr v-for="(item,index) in getlist" :key="index">
+          <tr v-for="(item,index) in getlist" :key="index" @click="getDetails(item)">
             <td>{{index+1}}</td>
             <td>{{item.title}}</td>
             <td>{{item.author}}</td>
@@ -99,6 +99,10 @@ export default {
         this.getlist = res.data.newslist;
         console.log(this.getlist);
       });
+    },
+    getDetails:function(e){
+      /**获取当前点击诗词列的详情 */
+      console.log(e);
     }
   },
   mounted() {
