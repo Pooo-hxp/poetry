@@ -1,6 +1,6 @@
 <template>
     <div>
-       <h3>这是诗词详情的内容啊</h3> 
+       <h3>{{details}}</h3> 
     </div>
 </template>
 <script>
@@ -8,15 +8,16 @@ export default {
     name:'poetryDetails',
     data() {
         return {
-            
+            details:''
         }
     },
     methods:{
     },
     mounted() {
-      let data=JSON.parse(sessionStorage.getItem('par'));
-      console.log('传来的');
-      console.log(data);
+        /**
+         * 获取所点击的诗词详情
+        */
+      this.details=JSON.parse(sessionStorage.getItem('par'));
     },
 }
 </script>

@@ -39,10 +39,9 @@
           </tr>
         </thead>
         <tbody class="hxp-icon">
-           
           <tr v-for="(item,index) in getlist" :key="index" @click="getDetails(item)">
             <td>{{index+1}}</td>
-            <td><router-link to="/poetryDetails">{{item.title}}</router-link></td>
+            <td>{{item.title}}</td>
             <td>{{item.author}}</td>
             <td>{{time|filtertime}}</td>
             <td>
@@ -51,7 +50,6 @@
               </a>
             </td>
           </tr>
-           
         </tbody>
       </table>
     </div>
@@ -104,8 +102,8 @@ export default {
     },
     getDetails:function(e){
       /**
-       * 获取当前点击诗词列的详情
-       * 存到浏览器中
+       * 获取当前点击诗词列的详情e
+       * 分类存到浏览器中
        */
       let par=[{
         author:e.author,
@@ -114,14 +112,15 @@ export default {
         kind:e.kind,
         title:e.title
       }]
-      //  sessionStorage.setItem("author",e.author);
-      //  sessionStorage.setItem("content",e.content);
-      //  sessionStorage.setItem("intro",e.intro);
-      //  sessionStorage.setItem("kind",e.kind);
-      //  sessionStorage.setItem("title",e.title);
-      console.log('点击的');
-      console.log(par);
        sessionStorage.setItem("par",JSON.stringify(par));
+       this.$router.push({path:'/poetryDetails'})
+       /**
+        * 这里我原先是在vue中加的<vue-router>
+        * 结果发现是先获取后传过去，导致点击诗词后
+        * 展示的是上次的数据，不同步
+        * 所以改用点击事件触发路由地址变动
+        * 从而解决这个bug
+        */
     }
   },
   mounted() {
