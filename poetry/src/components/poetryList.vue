@@ -39,9 +39,10 @@
           </tr>
         </thead>
         <tbody class="hxp-icon">
+           
           <tr v-for="(item,index) in getlist" :key="index" @click="getDetails(item)">
             <td>{{index+1}}</td>
-            <td>{{item.title}}</td>
+            <td><router-link to="/poetryDetails">{{item.title}}</router-link></td>
             <td>{{item.author}}</td>
             <td>{{time|filtertime}}</td>
             <td>
@@ -50,6 +51,7 @@
               </a>
             </td>
           </tr>
+           
         </tbody>
       </table>
     </div>
@@ -101,8 +103,25 @@ export default {
       });
     },
     getDetails:function(e){
-      /**获取当前点击诗词列的详情 */
-      console.log(e);
+      /**
+       * 获取当前点击诗词列的详情
+       * 存到浏览器中
+       */
+      let par=[{
+        author:e.author,
+        content:e.content,
+        intro:e.intro,
+        kind:e.kind,
+        title:e.title
+      }]
+      //  sessionStorage.setItem("author",e.author);
+      //  sessionStorage.setItem("content",e.content);
+      //  sessionStorage.setItem("intro",e.intro);
+      //  sessionStorage.setItem("kind",e.kind);
+      //  sessionStorage.setItem("title",e.title);
+      console.log('点击的');
+      console.log(par);
+       sessionStorage.setItem("par",JSON.stringify(par));
     }
   },
   mounted() {
