@@ -4,24 +4,21 @@
       <div class="col-md-3 hxp-li-">
         <ul class="text-left hxp-li-margin">
           <li>
-                <img src="../assets/images/photo/foo.jpg" alt="图片资源不存在" width="100px" height="100px" />
+                <img src="../assets/images/photo/foo.jpg" alt="图片地址出错.." width="100px" height="100px" />
           </li>
           <li>
-            <!-- <svg class="icon" style="font-size: 25px;">
-              <use xlink:href="#icon-BOOKMARKINGSERVICES" />
-            </svg>诗词内容 -->
+            <!-- 图标替换 -->
+              <img src="../assets/images/icon/内容.png"  style="width:60px;height:60px" />
             诗词内容
           </li>
           <li>
             <!-- <svg class="icon" style="font-size: 25px;">
               <use xlink:href="#icon-rili" />
             </svg> -->
+              <img src="../assets/images/icon/题型解析.png" style="width:60px;height:60px"  />
             作品解析
           </li>
           <li>
-            <!-- <svg class="icon" style="font-size: 25px;">
-              <use xlink:href="#icon-xihuan" />
-            </svg> -->
             <a href="mailto:hengxipeng@163.com">联系我</a>
           </li>
         </ul>
@@ -41,9 +38,6 @@
       </div>
       <div class="col-md-5">
         <h2 class="hxp-fontfamily">
-          <!-- <svg class="icon" style="font-size: 30px;">
-            <use xlink:href="#icon-rili" />
-          </svg> -->
           诗词解析
         </h2>
         <div class="container-fluid hxp-size-">
@@ -68,6 +62,7 @@ export default {
      * 获取所点击的诗词详情
      */
     this.details = JSON.parse(sessionStorage.getItem("par"));
+    console.log(this.details);
   }
 };
 </script>
