@@ -6,7 +6,7 @@
           <img src="../assets/images/photo/foo.jpg" alt="图片地址出错.." width="100px" height="100px" />
           <li class="text-center">
             <!-- 图标替换 -->
-            <img src="../assets/images/icon/喜欢.png" style="width:40px;height:40px" />
+            <img src="../assets/images/icon/star.png" style="width:40px;height:40px" />
             收藏本诗
           </li>
           <li class="text-center">
@@ -30,6 +30,7 @@
           </li>
           <div class="col-md-5">{{details[0].intro}}</div>
           <li class="text-center">
+            <img src="../assets/images/icon/路标.png" style="width:40px;height:40px" />
             <a href="mailto:hengxipeng@163.com">联系我</a>
           </li>
         </ul>
@@ -43,7 +44,9 @@ export default {
   data() {
     return {
       details: "",
-      poetryinfo:''
+      poetryinfo:'',
+      zhujie:'',
+      yunyi:''
     };
   },
   methods: {},
@@ -53,8 +56,23 @@ export default {
      * 并分割诗词内容友好化展示
      */
     this.details = JSON.parse(sessionStorage.getItem("par"));
-    this.poetryinfo=this.details[0].content.split('。')
-    console.log( this.poetryinfo);
+    /**诗词的内容 */
+    let data=this.details[0].intro;
+    console.log('全文');
+    console.log(data);
+    console.log('全文');
+    this.poetryinfo=this.details[0].content.split('。');
+    /**诗词的注解 */
+    this.zhujie=data.substr(0,data.indexOf('【韵译】'));
+    console.log('注解');
+    console.log(this.zhujie);
+    console.log('注解');
+    /**韵译 */
+    console.log('韵译');
+    this.yunyi=data.substr(data.indexOf('【韵译】'),data.indexOf('【评析】'));
+    console.log(this.yunyi);
+    console.log('韵译');
+
   }
 };
 </script>
