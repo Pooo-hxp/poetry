@@ -10,6 +10,10 @@
             收藏本诗
           </li>
           <li class="text-center">
+            <img src="../assets/images/icon/路标.png" style="width:40px;height:40px" />
+            <a href="mailto:hengxipeng@163.com">联系我</a>
+          </li>
+          <li class="text-center">
             <!-- 图标替换 -->
             <img src="../assets/images/icon/内容.png" style="width:40px;height:40px" />
             诗词内容
@@ -17,22 +21,22 @@
           <div class="col-md-4">
             <div class="row-fluid text-center">
               <h3 class="text-success">《{{details[0].title}}》</h3>
-              <h4 class="text-right">--{{details[0].author}}</h4>
+              <h4 class="text-right">--{{details[0].author}}&#12288&#12288</h4>
               <p v-for="item in poetryinfo">{{item}}</p>
             </div>
           </div>
           <li class="text-center">
-            <!-- <svg class="icon" style="font-size: 25px;">
-              <use xlink:href="#icon-rili" />
-            </svg>-->
             <img src="../assets/images/icon/题型解析.png" style="width:40px;height:40px" />
             作品解析
           </li>
-          <div class="col-md-5">{{details[0].intro}}</div>
-          <li class="text-center">
-            <img src="../assets/images/icon/路标.png" style="width:40px;height:40px" />
-            <a href="mailto:hengxipeng@163.com">联系我</a>
-          </li>
+          <div class="col-md-5" style="padding:10px">
+            <div>
+             <p class="text-warning">注解：</p> 
+              <div v-for="(item,index) in note">{{item}}</div>
+            </div>
+            <p>韵译{{translate}}</p>
+            <p>评析{{comment}}</p>
+          </div>
         </ul>
       </div>
     </div>
@@ -44,9 +48,10 @@ export default {
   data() {
     return {
       details: "",
-      poetryinfo:'',
-      zhujie:'',
-      yunyi:''
+      poetryinfo: "",
+      note: "",
+      translate: "",
+      comment: ""
     };
   },
   methods: {},
@@ -57,22 +62,20 @@ export default {
      */
     this.details = JSON.parse(sessionStorage.getItem("par"));
     /**诗词的内容 */
-    let data=this.details[0].intro;
-    console.log('全文');
+    let data = this.details[0].intro;
+    console.log("全文");
     console.log(data);
-    console.log('全文');
-    this.poetryinfo=this.details[0].content.split('。');
+    console.log("全文");
+    /**主题诗词 */
+    this.poetryinfo = this.details[0].content.split("。");
     /**诗词的注解 */
-    this.zhujie=data.substr(0,data.indexOf('【韵译】'));
-    console.log('注解');
-    console.log(this.zhujie);
-    console.log('注解');
-    /**韵译 */
-    console.log('韵译');
-    this.yunyi=data.substr(data.indexOf('【韵译】'),data.indexOf('【评析】'));
-    console.log(this.yunyi);
-    console.log('韵译');
-
+    this.note = data.substr(0, data.indexOf("【韵译】")).substr(5);
+    this.note=this.note.split('。');
+    this.translate = data.substring(
+      data.indexOf("【韵译】"),
+      data.indexOf("【评析】")
+    ).substr(4);
+    this.comment = data.substr(data.indexOf("【评析】")).substr(4);
   }
 };
 </script>
@@ -95,7 +98,7 @@ ul li {
 
 .hxp-li-margin li {
   line-height: 3em;
-  width: 10em;
+  width: 7em;
 }
 .hxp-fontfamily {
   font-family: STXingkai;
