@@ -22,7 +22,7 @@
             <div class="row-fluid text-center">
               <h3 class="text-success">《{{details[0].title}}》</h3>
               <h4 class="text-right">--{{details[0].author}}&#12288&#12288</h4>
-              <p v-for="item in poetryinfo">{{item}}</p>
+              <p v-for="item in poetryinfo">{{item}}。</p>
             </div>
           </div>
           <li class="text-center">
@@ -31,14 +31,17 @@
           </li>
           <div class="col-md-5" style="padding:10px">
             <div>
-             <p class="text-warning">注解：</p> 
+             <p class="btn-success hxp-title-">注解：</p> 
               <div v-for="(item,index) in note">{{item}}。</div>
             </div>
             <div>
-             <p class="text-info">韵译：</p> 
-            <p>{{translate}}</p>
+             <p class="btn-danger hxp-title-">韵译：</p> 
+            <p>&#12288{{translate}}</p>
             </div>
-            <p>评析{{comment}}</p>
+            <div>
+            <p class="btn-info hxp-title-">评析</p>
+            <p>&#12288{{comment}}</p>
+            </div>
           </div>
         </ul>
       </div>
@@ -71,6 +74,7 @@ export default {
     console.log("全文");
     /**主题诗词 */
     this.poetryinfo = this.details[0].content.split("。");
+    this.poetryinfo.pop();
     /**截取字符串中对应字段 */
     this.note = data.substr(0, data.indexOf("【韵译】")).substr(5);
     /**截取后分割成数组 */
@@ -109,8 +113,9 @@ ul li {
 .hxp-fontfamily {
   font-family: STXingkai;
 }
-.hxp-size- {
-  /* height: 20em; */
-  overflow-x: hidden;
+.hxp-title-{
+  font-size: 21px;
+  font-weight: 600;
+  font-family: cursive;
 }
 </style>
