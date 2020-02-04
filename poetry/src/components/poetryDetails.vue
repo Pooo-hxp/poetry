@@ -32,9 +32,12 @@
           <div class="col-md-5" style="padding:10px">
             <div>
              <p class="text-warning">注解：</p> 
-              <div v-for="(item,index) in note">{{item}}</div>
+              <div v-for="(item,index) in note">{{item}}。</div>
             </div>
-            <p>韵译{{translate}}</p>
+            <div>
+             <p class="text-info">韵译：</p> 
+            <p>{{translate}}</p>
+            </div>
             <p>评析{{comment}}</p>
           </div>
         </ul>
@@ -68,14 +71,17 @@ export default {
     console.log("全文");
     /**主题诗词 */
     this.poetryinfo = this.details[0].content.split("。");
-    /**诗词的注解 */
+    /**截取字符串中对应字段 */
     this.note = data.substr(0, data.indexOf("【韵译】")).substr(5);
+    /**截取后分割成数组 */
     this.note=this.note.split('。');
+    /**解决数组中末尾总会多一个的bug */
+    this.note.pop();
     this.translate = data.substring(
       data.indexOf("【韵译】"),
       data.indexOf("【评析】")
-    ).substr(4);
-    this.comment = data.substr(data.indexOf("【评析】")).substr(4);
+    ).substr(5);
+    this.comment = data.substr(data.indexOf("【评析】")).substr(5);
   }
 };
 </script>
