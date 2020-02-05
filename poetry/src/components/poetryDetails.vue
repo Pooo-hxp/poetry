@@ -65,6 +65,7 @@ export default {
     /**
      * 获取所点击的诗词详情
      * 并分割诗词内容友好化展示
+     * 利用split()方法解决解决数组中末尾总会多一个的bug
      */
     this.details = JSON.parse(sessionStorage.getItem("par"));
     /**诗词的内容 */
@@ -79,7 +80,6 @@ export default {
     this.note = data.substr(0, data.indexOf("【韵译】")).substr(5);
     /**截取后分割成数组 */
     this.note=this.note.split('。');
-    /**解决数组中末尾总会多一个的bug */
     this.note.pop();
     this.translate = data.substring(
       data.indexOf("【韵译】"),
