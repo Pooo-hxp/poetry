@@ -68,7 +68,7 @@ export default {
       reload: true,
       selectval: null,
       selectval_type: "唐诗",
-      Tangshi_key: "李商隐",
+      Tangshi_key: "王维",
       Songci_key: null,
       getlist: null
     };

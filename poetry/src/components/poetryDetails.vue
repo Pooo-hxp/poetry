@@ -40,7 +40,7 @@
             </div>
             <div>
             <p class="btn-info hxp-title-">评析</p>
-            <p>&#12288{{comment}}</p>
+            <p>&#12288{{comment}}</p></br></br></br>
             </div>
           </div>
         </ul>
@@ -73,7 +73,7 @@ export default {
     console.log("全文");
     console.log(data);
     console.log("全文");
-    /**主题诗词 */
+    /**主题诗词展示 */
     this.poetryinfo = this.details[0].content.split("。");
     this.poetryinfo.pop();
     /**截取字符串中对应字段 */
