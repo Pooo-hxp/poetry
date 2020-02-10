@@ -4,7 +4,7 @@
       <div class="col-md-3 hxp-li-">
         <ul class="text-left hxp-li-margin">
           <img src="../assets/images/photo/foo.jpg" alt="图片地址出错.." width="100px" height="100px" />
-          <li class="text-center">
+          <li class="text-center" @click="Collection">
             <!-- 图标替换 -->
             <img src="../assets/images/icon/star.png" style="width:40px;height:40px" />
             收藏本诗
@@ -13,6 +13,8 @@
             <img src="../assets/images/icon/路标.png" style="width:40px;height:40px" />
             <a href="mailto:hengxipeng@163.com">联系我</a>
           </li>
+          <button @click="test($event)"> 充值</button>
+          <button @click="test($event)"> 消费</button>
           <li class="text-center">
             <!-- 图标替换 -->
             <img src="../assets/images/icon/内容.png" style="width:40px;height:40px" />
@@ -20,8 +22,8 @@
           </li>
           <div class="col-md-4">
             <div class="row-fluid text-center">
-              <h3 class="text-success">《{{details[0].title}}》</h3>
-              <h4 class="text-right">--{{details[0].author}}&#12288&#12288</h4>
+              <h3 class="text-success">《{{details.title}}》</h3>
+              <h4 class="text-right">--{{details.author}}&#12288&#12288</h4>
               <p v-for="item in poetryinfo">{{item}}。</p>
             </div>
           </div>
@@ -60,21 +62,58 @@ export default {
       comment: ""
     };
   },
-  methods: {},
+  methods: {
+    test(event){
+      console.log(event.target.innerHTML);
+    },
+    Collection(){
+      console.log('点击收藏功能按钮！');
+      var userName=localStorage.getItem("UserName")
+      alert(userName[0])
+      var formdata=new FormData();
+      let url='https://www.xipengheng.cn/AAA/insertUserColl.php'
+      /**
+       * 获取当前登录的用户名
+       * 格式化需要进行收藏的诗词信息
+       */
+      console.log(this.details);
+        formdata.append('UserName',userName);
+        formdata.append('CollTitle',this.details.title);
+        formdata.append('CollTag',this.details.kind);
+        formdata.append('CollAuthor',this.details.author);
+        formdata.append('CollContent',this.details.content);
+        formdata.append('CollYiwen',this.details.intro);
+      // var parse={
+      //   UserName:userName,'
+      //   CollTitle:this.details.title,
+      //   CollTag:this.details.kind,
+      //   CollAuthor:this.details.author,
+      //   CollContent:this.details.content,
+      //   CollYiwen:this.details.intro,
+      // }
+      console.log(formdata);
+      this.$axios
+      .post(url,formdata)
+      .then(res=>{
+        console.log('收藏成功');
+        console.log(res);
+      })
+    }
+  },
   mounted() {
     /**
      * 获取所点击的诗词详情
      * 并分割诗词内容友好化展示
      * 利用split()方法解决解决数组中末尾总会多一个的bug
      */
-    this.details = JSON.parse(sessionStorage.getItem("par"));
+    this.details = JSON.parse(sessionStorage.getItem("par"))[0];
     /**诗词的内容 */
-    let data = this.details[0].intro;
+    let data = this.details.intro;
     console.log("全文");
     console.log(data);
     console.log("全文");
     /**主题诗词展示 */
-    this.poetryinfo = this.details[0].content.split("。");
+    this.poetryinfo = this.details.content.split("。");
     this.poetryinfo.pop();
     /**截取字符串中对应字段 */
     this.note = data.substr(0, data.indexOf("【韵译】")).substr(5);
