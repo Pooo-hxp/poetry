@@ -328,9 +328,12 @@ export default {
     /** 个人诗词收藏列表 */
     selectMyColl:function(){
       var userName=localStorage.getItem("UserName")
-      alert('点击了我的收藏')
-      alert(userName)
-
+      this.$axios
+      .get(`https://www.xipengheng.cn/AAA/selectUserColl.php?UserName=${userName}`)
+      .then(res=>{
+        console.log('获取收藏列表');
+        console.log(res.data.message);
+      })
     },
     /**修改个人信息 */
     updateInfo_axios: function() {
