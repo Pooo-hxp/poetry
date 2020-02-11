@@ -65,7 +65,7 @@
           </tr>
           <tr>
             <td>
-              <a>
+              <a @click="selectMyColl">
                 <img src="../assets/images/icon/路标.png" alt srcset />我的收藏
               </a>
             </td>
@@ -324,6 +324,13 @@ export default {
             ? alert("注册成功，请登录")
             : alert("数据库连接失败，请稍后再试或联系管理员");
         });
+    },
+    /** 个人诗词收藏列表 */
+    selectMyColl:function(){
+      var userName=localStorage.getItem("UserName")
+      alert('点击了我的收藏')
+      alert(userName)
+
     },
     /**修改个人信息 */
     updateInfo_axios: function() {

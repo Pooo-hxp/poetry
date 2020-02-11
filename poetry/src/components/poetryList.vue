@@ -82,9 +82,9 @@ export default {
       this.selectval_type == "宋词"
         ? ((this.Songci_key = this.selectval), (this.Tangshi_key = null))
         : (this.Tangshi_key = this.selectval);
-        this.Tangshi_key==null?
-        this.url=`${this.header}/songci/${this.key}&word=${this.Songci_key}&num=7`
-        :this.url=`${this.header}/poetry/${this.key}&word=${this.Tangshi_key}&num=7`;
+      this.Tangshi_key == null
+        ? (this.url = `${this.header}/songci/${this.key}&word=${this.Songci_key}&num=7`)
+        : (this.url = `${this.header}/poetry/${this.key}&word=${this.Tangshi_key}&num=7`);
       this.$axios.get(this.url).then(res => {
         this.getlist = res.data.newslist;
         console.log(this.getlist);
@@ -100,27 +100,29 @@ export default {
         console.log(this.getlist);
       });
     },
-    getDetails:function(e){
+    getDetails: function(e) {
       /**
        * 获取当前点击诗词列的详情e
        * 分类存到浏览器中
        */
-      let par=[{
-        author:e.author,
-        content:e.content,
-        intro:e.intro,
-        kind:e.kind,
-        title:e.title
-      }]
-       sessionStorage.setItem("par",JSON.stringify(par));
-       this.$router.push({path:'/poetryDetails'})
-       /**
-        * 这里我原先是在vue中加的<vue-router>
-        * 结果发现是先获取后传过去，导致点击诗词后
-        * 展示的是上次的数据，不同步
-        * 所以改用点击事件触发路由地址变动
-        * 从而解决这个bug
-        */
+      let par = [
+        {
+          author: e.author,
+          content: e.content,
+          intro: e.intro,
+          kind: e.kind,
+          title: e.title
+        }
+      ];
+      sessionStorage.setItem("par", JSON.stringify(par));
+      this.$router.push({ path: "/poetryDetails" });
+      /**
+       * 这里我原先是在vue中加的<vue-router>
+       * 结果发现是先获取后传过去，导致点击诗词后
+       * 展示的是上次的数据，不同步
+       * 所以改用点击事件触发路由地址变动
+       * 从而解决这个bug
+       */
     }
   },
   mounted() {

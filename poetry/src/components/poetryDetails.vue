@@ -13,8 +13,6 @@
             <img src="../assets/images/icon/路标.png" style="width:40px;height:40px" />
             <a href="mailto:hengxipeng@163.com">联系我</a>
           </li>
-          <button @click="test($event)"> 充值</button>
-          <button @click="test($event)"> 消费</button>
           <li class="text-center">
             <!-- 图标替换 -->
             <img src="../assets/images/icon/内容.png" style="width:40px;height:40px" />
@@ -63,13 +61,9 @@ export default {
     };
   },
   methods: {
-    test(event){
-      console.log(event.target.innerHTML);
-    },
     Collection(){
       console.log('点击收藏功能按钮！');
       var userName=localStorage.getItem("UserName")
-      alert(userName[0])
       var formdata=new FormData();
       let url='https://www.xipengheng.cn/AAA/insertUserColl.php'
       /**
@@ -83,18 +77,21 @@ export default {
         formdata.append('CollAuthor',this.details.author);
         formdata.append('CollContent',this.details.content);
         formdata.append('CollYiwen',this.details.intro);
-      // var parse={
-      //   UserName:userName,'
-      //   CollTitle:this.details.title,
-      //   CollTag:this.details.kind,
-      //   CollAuthor:this.details.author,
-      //   CollContent:this.details.content,
-      //   CollYiwen:this.details.intro,
-      // }
+        /** 
+      var parse={
+        UserName:userName,'
+        CollTitle:this.details.title,
+        CollTag:this.details.kind,
+        CollAuthor:this.details.author,
+        CollContent:this.details.content,
+        CollYiwen:this.details.intro,
+      }
+      */
       console.log(formdata);
       this.$axios
       .post(url,formdata)
       .then(res=>{
+        alert('收藏成功');
         console.log('收藏成功');
         console.log(res);
       })
