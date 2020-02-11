@@ -105,6 +105,8 @@
         <dd>更换头像图片:开发中....</dd>
       </dl>
     </div>
+
+    <!-- 设置、登录 -->
     <div class="login" v-if="table">
       <div class="menu">
         <button class="btn-success" @click="loginfun">想登录/注册?</button>
@@ -179,6 +181,39 @@
         </tbody>
       </table>
     </div>
+    <!-- 我的收藏弹窗 -->
+    <div class="login" v-if="table1">
+      <div class="menu">
+        <p class="text-right">
+          <a @click="close">关闭</a>
+        </p>
+      </div>
+      <div class="hxp-tangshi-list">
+        <table class="table table-inverse table-responsive table-hover">
+          <thead class="thead-inverse">
+            <tr>
+              <th>序列</th>
+              <th>作品名</th>
+              <th>作者</th>
+              <th>del</th>
+            </tr>
+          </thead>
+          <tbody class="hxp-icon">
+            <tr v-for="(item,index) in collList" :key="index">
+              <td>{{index+1}}</td>
+              <td>{{item.CollTitle}}</td>
+              <td>{{item.CollAuthor}}</td>
+              <td>
+                <a href @click.prevent="del(index)">
+                  <img src="../assets/images/icon/喜欢.png" />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 调查问卷弹窗 -->
     <div class="login" v-if="table2">
       <div class="menu">
         <button class="btn-warning">十分感谢您接受我的调查问卷</button>
@@ -191,12 +226,7 @@
           <tr>
             <td class="text-success">姓名</td>
             <td>
-              <input
-                type="text"
-                class="form-control"
-                disabled="disabled"
-                v-model="UserName"
-              />
+              <input type="text" class="form-control" disabled="disabled" v-model="UserName" />
             </td>
           </tr>
           <tr>
@@ -249,14 +279,16 @@ export default {
   name: "msgCompon", //把当前组件抛出并命名
   data() {
     return {
-      table: false /*弹窗是否显示*/,
+      table: false /*账号信息*/,
+      table1: false /*收藏信息*/,
+      table2: false /*调查问卷*/,
       updateInfo: false /*个人信息修改*/,
       login: true /*注册、登录*/,
       UserName: null,
       PassWord: null,
       UserGender: null,
       UserSayHi: null,
-      table2: false /**调查问卷table */,
+      collList: null,
       question_UserGender: null,
       question_Age: null,
       question_LikeType: null
@@ -326,14 +358,18 @@ export default {
         });
     },
     /** 个人诗词收藏列表 */
-    selectMyColl:function(){
-      var userName=localStorage.getItem("UserName")
+    selectMyColl: function() {
+      var userName = localStorage.getItem("UserName");
       this.$axios
-      .get(`https://www.xipengheng.cn/AAA/selectUserColl.php?UserName=${userName}`)
-      .then(res=>{
-        console.log('获取收藏列表');
-        console.log(res.data.message);
-      })
+        .get(
+          `https://www.xipengheng.cn/AAA/selectUserColl.php?UserName=${userName}`
+        )
+        .then(res => {
+          console.log("获取收藏列表");
+          console.log(res.data.message);
+          this.collList = res.data.message;
+          this.table1 = true;
+        });
     },
     /**修改个人信息 */
     updateInfo_axios: function() {
@@ -357,11 +393,13 @@ export default {
       formdata.append("LikeType", this.question_LikeType);
       console.log(formdata);
       this.$axios
-      .post("https://www.xipengheng.cn/AAA/insertQuestionTable.php",formdata)
-      .then(res=>{
-        console.log('问卷数据插入数据库成功');
-        res.data.infoCode==1?this.table2=false:alert('数据库链接异常')
-      })
+        .post("https://www.xipengheng.cn/AAA/insertQuestionTable.php", formdata)
+        .then(res => {
+          console.log("问卷数据插入数据库成功");
+          res.data.infoCode == 1
+            ? (this.table2 = false)
+            : alert("数据库链接异常");
+        });
     },
     loginfun: function() {
       this.login = true;
@@ -373,6 +411,7 @@ export default {
     },
     close: function() {
       this.table = false;
+      this.table1 = false;
       this.table2 = false;
     },
     setting: function() {
@@ -467,5 +506,15 @@ export default {
   padding: 2rem;
   border-radius: 20px;
   background: url(../assets/images/photo/data_bg.jpg);
+}
+.hxp-icon img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.hxp-tangshi-list {
+  height: 30rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 </style>
