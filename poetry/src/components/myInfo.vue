@@ -5,7 +5,7 @@
         <!-- <img src="src/common/image/icon/日历.png" alt=""> -->
       </div>
       <div class="row header-info-div">
-        <!--头像及个人昵称 -->
+        <!--头像及个人的昵称 -->
         <div class="col-xs-5 col-md-4 header-info-image"></div>
         <div class="col-xs-7 col-md-6 header-info-name">
           <table class="table">
