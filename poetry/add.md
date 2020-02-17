@@ -15,4 +15,4 @@
 ## src下app.vue：使用标签<route-view></router-view>渲染整个工程的.vue组件。
 ## src下main.js：vue-cli工程的入口文件。
 ## index.html：设置项目的一些meta头信息和提供<div id="app"></div>用于挂载 vue 节点。
-## package.json：用于 node_modules资源部和启动、打包项目的 npm 命令管理。
+## package.json：用于node_modules资源部和启动、打包项目的 npm 命令管理。
