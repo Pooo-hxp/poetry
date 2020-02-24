@@ -60,9 +60,9 @@ export default {
       tableData: null,
       time: new Date(),
       /**分页效果 */
-      cur_page: 1, //默认在第一页
-      pageNum: 5, //默认每页显示1条数据
-      totalCount: 10, //默认总条数为一条
+      cur_page: 1, //默认展示第一页
+      pageNum: 5, //默认每页显示5条数据
+      totalCount: 10, //默认总条数为10条
       slot: ""
     };
   },
