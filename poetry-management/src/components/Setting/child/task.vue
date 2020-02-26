@@ -1,6 +1,7 @@
 <template>
   <div>
     <h4>这是任务组件</h4>
+    <button @click="test()">按钮</button>
     <table>
       <thead>
         <th>表头1</th>
@@ -14,7 +15,13 @@
 <script>
 export default {
   name: "task",
-  data() {}
+  data() {},
+  methods:{
+    test(){
+      alert()
+      window.open('https://www.baidu.com');
+    }
+  }
 };
 </script>
 <style scoped>
