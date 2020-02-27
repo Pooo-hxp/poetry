@@ -1,6 +1,7 @@
 <template>
   <div>
     <h4>这是任务组件</h4>
+    <!-- 测试打开网页 -->
     <button @click="test()">按钮</button>
     <table>
       <thead>
