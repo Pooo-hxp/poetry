@@ -61,7 +61,7 @@
             }
         },
         mounted () {
-	        //为了防止火狐浏览器拖拽的时候以新标签打开，此代码真实有效
+	        //为了防止火狐浏览器拖拽的时候以新标签打开
             document.body.ondrop = function (event) {
                 event.preventDefault();
                 event.stopPropagation();
