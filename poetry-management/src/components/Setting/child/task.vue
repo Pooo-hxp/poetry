@@ -58,7 +58,7 @@
             datadragEnd (evt) {
                 //阻止火狐浏览器的默认事件
                 evt.preventDefault();
-                //获取排序后的新队列
+                //获取排序后的新顺序
                 console.log(this.colors);
             }
         },
