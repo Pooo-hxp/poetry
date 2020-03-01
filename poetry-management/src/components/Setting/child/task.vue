@@ -13,34 +13,34 @@
     export default{
         data(){
             return{
-                msg:"这是测试组件",
+                msg:"这是自由拖拽组件",
                 colors: [
                     {
-                        text: "Aquamarine",
+                        text: "拖拽模块一",
                     }, 
                     {
-                        text: "Hotpink",
+                        text: "拖拽模块二",
                     }, 
                     {
-                        text: "Gold",
+                        text: "拖拽模块三",
                     }, 
                     {
-                        text: "Crimson",
+                        text: "拖拽模块四",
                     }, 
                     {
-                        text: "Blueviolet",
+                        text: "拖拽模块五",
                     },
                     {
-                        text: "Lightblue",
+                        text: "拖拽模块六",
                     }, 
                     {
-                        text: "Cornflowerblue",
+                        text: "拖拽模块七",
                     }, 
                     {
-                        text: "Skyblue",
+                        text: "拖拽模块八",
                     }, 
                     {
-                        text: "Burlywood",
+                        text: "拖拽模块九",
                     }
                 ],
                 startArr:[],
