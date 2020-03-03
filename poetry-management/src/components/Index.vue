@@ -61,7 +61,6 @@
                 </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-            <!-- disabled 加禁用 -->
             <!-- 信息功能 -->
           <el-menu-item index="4">
             <i class="el-icon-loading"></i>
