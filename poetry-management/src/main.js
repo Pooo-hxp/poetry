@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 /**
  * 入口文件
- * create from 20191207
+ * create from 20191207 of HXP
  * ./指同级  ../指上级 @/指src路径下
  */
 import Vue from 'vue'
