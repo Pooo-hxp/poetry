@@ -96,9 +96,11 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
+      // 打印路径
       console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
+      // 打印路径
       console.log(key, keyPath);
     }
   }
