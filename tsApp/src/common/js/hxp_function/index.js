@@ -21,7 +21,7 @@ $(function () {
                 this.reload = false;
 				this.$nextTick(() => {
 					this.reload= true;
-				})
+                })
             },
             Change_Tangshi_key:function(e){
                 /**点击热门诗人，重新渲染组件 */
