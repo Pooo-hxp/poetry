@@ -78,7 +78,6 @@
           <h2>{{msg}}</h2>
         </el-header>
         <el-main>
-          <!-- 右侧内容,用于切换组件 -->
           <router-view />
         </el-main>
       </el-container>
