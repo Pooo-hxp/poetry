@@ -6,7 +6,6 @@
         <th>表头1</th>
         <th>表头2</th>
         <th>表头3</th>
-        <th>表头4</th>
       </thead>
     </table>
   </div>
