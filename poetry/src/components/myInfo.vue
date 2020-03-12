@@ -385,6 +385,7 @@ export default {
           this.table = false;
         });
     },
+    /**用户的调查问卷 */
     questionTable_axios: function() {
       let formdata = new FormData();
       formdata.append("UserName", this.UserName);
