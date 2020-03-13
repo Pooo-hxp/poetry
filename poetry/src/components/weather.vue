@@ -2,7 +2,6 @@
   <div class="hxp-weather">
     <div class="hxp-weather-header">
       <img :src="weather_weatherimg" alt="">
-      <!--暂定-->
       <img src="../assets/images/icon/qing.png" alt />
       <a id="jinrishici-sentence">今日诗词....</a>
     </div>
