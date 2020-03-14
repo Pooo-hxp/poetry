@@ -20,13 +20,12 @@
                                 <img src="../assets/images/icon/赞(前).png">（{{item.Like}}）</a>
                                 
                             <!-- 
-                                这里函数我分别传入当前留言ID号，当前计数，序号
+                                这里函数传入当前留言ID号，当前计数，序号
                                 为的是写入数据库时能赞/踩计数到对应的评论上
                              -->
                             <a href="" @click.prevent='sick(item.MsgID,item.Sick,index)'>
                                 <img src="../assets/images/icon/踩(后).png">（{{item.Sick}}）</a>
                         </div>
-                    </p>
                 </div>
             </li>  
         </ol>

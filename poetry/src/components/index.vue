@@ -6,12 +6,6 @@
     <!-- 诗词列表组件 -->
     <weather></weather>
     <!-- 天气组件-->
-    <div>
-      <!-- 彩蛋  -->
-      <div>哈哈哈，恭喜你喜提彩蛋</div>
-      <div>然而，没什么奖励</div>
-      <div>嘿嘿嘿....</div>
-    </div>
   </div>
 </template>
 
