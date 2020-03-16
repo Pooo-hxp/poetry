@@ -2,7 +2,6 @@
   <div class="app header">
     <div class="container header-info">
       <div class="row header-info-ps">
-        <!-- <img src="src/common/image/icon/日历.png" alt=""> -->
       </div>
       <div class="row header-info-div">
         <!--头像及个人的昵称 -->
