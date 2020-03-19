@@ -79,7 +79,7 @@ export default {
           }
         ]
       };
-      // 使用刚指定的配置项和数据进行图表显示。
+      // 使用指定的配置项和数据进行图表显示。
       myChart.setOption(option);
     }
   }
