@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!--main-->
     <table >
       <draggable  :move="getdata" @update="datadragEnd">
       <tr v-for="(item,id) in tablelist2" :key="id">
@@ -11,7 +10,6 @@
       </draggable>
     </table>
     <div>提示：拖动可对栏目进行排序</div>
-    <!--main end-->
   </div>
 </template>
 <script>
@@ -35,7 +33,6 @@ export default {
     };
   },
   methods: {
-    //拖动中与拖动结束
     getdata(evt) {
       console.log(evt.draggedContext.element.id);
     },
