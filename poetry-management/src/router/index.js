@@ -8,7 +8,8 @@ import UserdataView from '@/components/Userdata/view'
 import Setting from '@/components/Setting'
 import Draggable from '@/components/Draggable'
 /**
- * @ 代表src在config下的webpack.base.conf.js中的配置 '@':resolve('src')
+ * @ 代表src
+ * 在config下的webpack.base.conf.js中的配置 '@':resolve('src')
  * 可自行设置
  */
 Vue.use(Router)
