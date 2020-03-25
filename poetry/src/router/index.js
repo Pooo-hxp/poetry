@@ -23,18 +23,18 @@ export default new Router({
       component: index
     },
     {
-      path:'/msg',
-      name:'msg',
-      component:msg
-    },{
-      path:'/myInfo',
-      name:'myInfo',
-      component:myInfo
+      path: '/msg',
+      name: 'msg',
+      component: msg
+    }, {
+      path: '/myInfo',
+      name: 'myInfo',
+      component: myInfo
     },
     {
-      path:'/poetryDetails',
-      name:'poetryDetails',
-      component:poetryDetails
+      path: '/poetryDetails',
+      name: 'poetryDetails',
+      component: poetryDetails
     }
   ]
 })

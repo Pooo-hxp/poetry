@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="ul">
+    <li>123</li>
+    <li>456</li>
+    <li>7898</li>
+    <li>999</li>
+  </ul>
+</body>
+<script>
+  var oul = document.getElementById('ul');
+  var oli = document.getElementsByTagName('li')
+  for (let i = 0; i < oli.length; i++) {
+    oli[i].onmouseover = function () {
+      console.log(this)
+      console.log(oli[i])
+      console.log(window.oli[i])
+
+    }
+  }
+
+</script>
+
+</html>
