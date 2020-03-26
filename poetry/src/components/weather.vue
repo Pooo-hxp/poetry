@@ -23,12 +23,12 @@
 </template>
 <script>
 export default {
-    name:'weather', //把当前组件命名并暴露出去
+    name:'weather', 
     data:function(){
         return{
           header: "http://api.tianapi.com/txapi",
           key: "?key=0c7ebab2461621aeb2c34b3a82e4c702",
-          weather_weatherimg: ('../assets/images/icon/'),/*天气图标*/
+          weather_weatherimg: ('../assets/images/icon/'),
           city :'city=郑州',
           word :'tianqi',
           data:'',
