@@ -8,7 +8,7 @@
 export default {
   data() {
     return {
-      msg:'不同类型诗词访问数据表'
+      // msg:'不同类型诗词访问数据表'
     };
   },
   mounted() {

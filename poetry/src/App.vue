@@ -45,7 +45,6 @@
 export default {
   name: "App",
   components: {
-    // msgC
   }
 };
 </script>
