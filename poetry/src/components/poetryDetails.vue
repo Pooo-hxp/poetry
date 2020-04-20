@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     Collection(){
-      console.log('点击收藏功能按钮！');
+      console.log('点击了收藏功能按钮！');
       var userName=localStorage.getItem("UserName")
       var formdata=new FormData();
       let url='https://www.xipengheng.cn/AAA/insertUserColl.php'
@@ -101,14 +101,10 @@ export default {
     /**
      * 获取所点击的诗词详情
      * 并分割诗词内容友好化展示
-     * 利用split()方法解决解决数组中末尾总会多一个的bug
      */
     this.details = JSON.parse(sessionStorage.getItem("par"))[0];
     /**诗词的内容 */
     let data = this.details.intro;
-    console.log("全文");
-    console.log(data);
-    console.log("全文");
     /**主题诗词展示 */
     this.poetryinfo = this.details.content.split("。");
     this.poetryinfo.pop();
