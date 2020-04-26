@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     like: function(id, like, index) {
-      $("this>img").attr("src", "assets/images/icon/踩(后).png'"); //这里有问题，icon异常
+      $("this>img").attr("src", "assets/images/icon/踩(后).png'"); 
       console.log(`点击的当前评论的ID为${id}`);
       like < 99 ? (like = like * 1 + 1) /* string->number */ : (like = "99+");
       let newmsg = new FormData();
