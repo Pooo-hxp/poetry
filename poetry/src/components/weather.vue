@@ -1,8 +1,8 @@
 <template>
   <div class="hxp-weather">
     <div class="hxp-weather-header">
-      <img :src="weather_weatherimg" alt="">
-      <!-- <img src="../assets/images/icon/yu.png" alt /> -->
+      <!-- <img :src="weather_weatherimg" alt=""> -->
+      <img src="../assets/images/icon/yun.png" alt />
       <a id="jinrishici-sentence">今日诗词....</a>
     </div>
     <div class="hxp-weather-footer">
@@ -28,7 +28,7 @@ export default {
         return{
           header: "http://api.tianapi.com/txapi",
           key: "?key=0c7ebab2461621aeb2c34b3a82e4c702",
-          weather_weatherimg: ('../assets/images/icon/'),
+          weather_weatherimg:"../assets/images/icon/",
           city :'city=郑州',
           word :'tianqi',
           air_data:'',
@@ -42,7 +42,6 @@ export default {
               .get(url)
               .then(res => {
                   this.air_data = res.data.newslist[1];
-                  this.air_data.date== this.air_data.date-1;
                   console.log('---',this.air_data);
                   this.weather_weatherimg += this.air_data.weatherimg;
               })
@@ -51,7 +50,7 @@ export default {
 </script>
 <style  scoped>
 .hxp-weather {
-    margin: 1rem auto 2rem auto;
+    margin: 1rem auto ;
     color: #394568;
     background: linear-gradient(to bottom, #d1d8eb 40%, #222 100%);
     border-radius: 5px;
@@ -62,7 +61,6 @@ export default {
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     font-family: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    margin-bottom: 6rem;
 }
 
 .hxp-weather-header {

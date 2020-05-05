@@ -73,7 +73,7 @@ export default {
 }
 .carousel-inner {
     position: relative;
-    /* left: 0.1rem; */
+    left: 30px;
   width: 32rem;
   height: 23rem;
   background: green;
@@ -83,7 +83,7 @@ export default {
   height: 28rem;
 }
 .item img{
-    width: 33rem;
-    height: 28rem;
+    width: 35rem;
+    height: 29rem;
 }
 </style>
