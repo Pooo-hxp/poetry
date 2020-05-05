@@ -2,20 +2,20 @@
   <div class="hxp-weather">
     <div class="hxp-weather-header">
       <img :src="weather_weatherimg" alt="">
-      <img src="../assets/images/icon/qing.png" alt />
+      <!-- <img src="../assets/images/icon/yu.png" alt /> -->
       <a id="jinrishici-sentence">今日诗词....</a>
     </div>
     <div class="hxp-weather-footer">
       <div class="text-center hxp-weather-footer-left">
-        <h2>{{data.real}}</h2>
-        <em>{{data.date}}</em>
+        <h2>{{air_data.real}}</h2>
+        <em>{{air_data.date}}</em>
       </div>
       <div class="hxp-weather-footer-right">
         <ol>
-          <li>今天：{{data.week}}</li>
-          <li>天气：{{data.weather}}</li>
-          <li>气温：{{data.lowest}}/{{data.highest}}</li>
-          <li>空气质量：{{data.air_level}}</li>
+          <li>今天：{{air_data.week}}</li>
+          <li>天气：{{air_data.weather}}</li>
+          <li>气温：{{air_data.lowest}}/{{air_data.highest}}</li>
+          <li>风力：{{air_data.windsc}}</li>
         </ol>
       </div>
     </div>
@@ -31,7 +31,7 @@ export default {
           weather_weatherimg: ('../assets/images/icon/'),
           city :'city=郑州',
           word :'tianqi',
-          data:'',
+          air_data:'',
           url: '',
         }
     },
@@ -41,25 +41,28 @@ export default {
           this.$axios
               .get(url)
               .then(res => {
-                  this.data = res.data.newslist[1];
-                  this.weather_weatherimg += this.data.weatherimg;
+                  this.air_data = res.data.newslist[1];
+                  this.air_data.date== this.air_data.date-1;
+                  console.log('---',this.air_data);
+                  this.weather_weatherimg += this.air_data.weatherimg;
               })
         },
 }
 </script>
 <style  scoped>
 .hxp-weather {
-    margin: 1rem auto;
+    margin: 1rem auto 2rem auto;
     color: #394568;
     background: linear-gradient(to bottom, #d1d8eb 40%, #222 100%);
     border-radius: 5px;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
     width: 80%;
-    height: 15rem;
+    height: 18rem;
     align-items: flex-end;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
     font-family: "Open Sans", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin-bottom: 6rem;
 }
 
 .hxp-weather-header {
