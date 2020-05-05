@@ -41,7 +41,7 @@ export default {
         xAxis: {
           type: "category",
           boundaryGap: false,
-          data: ["6月", "7月", "8月", "9月", "10月", "11月", "12月"]
+          data: ["11月", "12月", "01月", "02月", "03月", "04月", "05月"]
         },
         yAxis: {
           type: "value"
