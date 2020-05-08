@@ -8,9 +8,9 @@ import UserdataView from '@/components/Userdata/view'
 import Setting from '@/components/Setting'
 import Draggable from '@/components/Draggable'
 /**
- * @ 代表src
+ * @ 代表路径以src为基准
  * 在config下的webpack.base.conf.js中的配置 '@':resolve('src')
- * 可自行设置
+ * 可进行自定义设置
  */
 Vue.use(Router)
 export default new Router({
