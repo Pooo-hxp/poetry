@@ -2,7 +2,7 @@
   <div class="hxp-weather">
     <div class="hxp-weather-header">
       <!-- <img :src="weather_weatherimg" alt=""> -->
-      <img src="../assets/images/icon/yun.png" alt />
+      <img src="../assets/images/icon/yu.png" alt />
       <a id="jinrishici-sentence">今日诗词....</a>
     </div>
     <div class="hxp-weather-footer">
@@ -41,7 +41,7 @@ export default {
           this.$axios
               .get(url)
               .then(res => {
-                  this.air_data = res.data.newslist[1];
+                  this.air_data = res.data.newslist[0];
                   console.log('---',this.air_data);
                   this.weather_weatherimg += this.air_data.weatherimg;
               })
