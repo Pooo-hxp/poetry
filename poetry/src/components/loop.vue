@@ -16,13 +16,13 @@
         </ol>
         <div class="carousel-inner">
           <div class="item active">
-            <img src="../assets/images/menu/timg1.jpg" alt />
+            <img src="../assets/images/menu/timg1.jpg"  />
           </div>
           <div class="item">
-            <img src="../assets/images/menu/timg4.jpg" alt />
+            <img src="../assets/images/menu/timg4.jpg"  />
           </div>
           <div class="item">
-            <img src="../assets/images/menu/timg5.jpg" alt />
+            <img src="../assets/images/menu/timg5.jpg"  />
           </div>
         </div>
         <a
@@ -52,8 +52,8 @@
         style="width: 100%;"
       >
         <marquee onmouseout="this.start()" onmouseover="this.stop()">
-          【最新公告】：亲亲注意哟，在‘宋词’选项卡下搜李白搜不到信息哟！
-          毕竟跨越几百年了呢~因篇幅问题，暂只能展示七条呢，搜索也可按作品名，不要漏字错字哟，搜不到的哟
+          【最新公告】：在‘宋词’选项卡下搜李白搜不到信息，
+          因篇幅问题，暂只能展示七条，搜索也可按作品名，漏字错字搜不到的
           无聊？刷新一下，天气卡片上有随机寄语哟！
         </marquee>
       </div>
