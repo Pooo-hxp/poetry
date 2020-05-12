@@ -36,10 +36,8 @@ export default {
   },
   mounted() {
     const url = `${this.header}/${this.word}/${this.key}&${this.city}`;
-    console.log(url);
     this.$axios.get(url).then(res => {
       this.air_data = res.data.newslist[0];
-      console.log("---", this.air_data);
       this.weather_weatherimg += this.air_data.weatherimg;
     });
   }
