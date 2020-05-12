@@ -92,7 +92,6 @@ export default {
       .post(url,formdata)
       .then(res=>{
         alert('收藏成功');
-        console.log('收藏成功');
         console.log(res);
       })
     }

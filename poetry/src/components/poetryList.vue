@@ -97,7 +97,6 @@ export default {
       this.url = `${this.header}/poetry/${this.key}&word=${this.Tangshi_key}&num=7`;
       this.$axios.get(this.url).then(res => {
         this.getlist = res.data.newslist;
-        console.log(this.getlist);
       });
     },
     getDetails: function(e) {
@@ -130,7 +129,6 @@ export default {
     this.url = `${this.header}/poetry/${this.key}&word=${this.Tangshi_key}&num=7`;
     this.$axios.get(this.url).then(res => {
       this.getlist = res.data.newslist;
-      console.log(this.getlist);
     });
   },
   filters: {
