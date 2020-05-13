@@ -102,14 +102,14 @@ export default {
      * 并分割诗词内容友好化展示
      */
     this.details = JSON.parse(sessionStorage.getItem("par"))[0];
-    /**诗词的内容 */
+    /**诗词的主体内容 */
     let data = this.details.intro;
     /**主题诗词展示 */
     this.poetryinfo = this.details.content.split("。");
     this.poetryinfo.pop();
-    /**截取字符串中对应字段 */
+    /**截取字符串中翻译段落 */
     this.note = data.substr(0, data.indexOf("【韵译】")).substr(5);
-    /**截取后分割成数组 */
+    /**截取后分割成数组用于排列 */
     this.note=this.note.split('。');
     this.note.pop();
     this.translate = data.substring(

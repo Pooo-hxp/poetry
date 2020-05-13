@@ -410,6 +410,7 @@ export default {
       this.login = false;
     },
     close: function() {
+      // 关闭问卷和个人信息弹窗
       this.table = false;
       this.table1 = false;
       this.table2 = false;

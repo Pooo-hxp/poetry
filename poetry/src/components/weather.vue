@@ -2,7 +2,7 @@
   <div class="hxp-weather">
     <div class="hxp-weather-header">
       <img src="../assets/images/icon/yu.png" alt />
-      <a id="jinrishici-sentence">今日诗词....</a>
+      <a id="jinrishici-sentence">今日诗词展示....</a>
     </div>
     <div class="hxp-weather-footer">
       <div class="text-center hxp-weather-footer-left">
